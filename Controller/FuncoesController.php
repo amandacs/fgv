@@ -23,7 +23,7 @@ class FuncoesController extends AppController {
 	public function index() {
         $order = array('Funcao.id'=>'ASC');
         $this->paginate = array(
-            'limit'=>10,
+            'limit'=>500,
             'recursive'=>0,
             'fields'=>array(
                 'Funcao.*',
@@ -46,7 +46,7 @@ class FuncoesController extends AppController {
 		if (!$this->Funcao->exists($id)) {
 			throw new NotFoundException(__('Função inválida.'));
 		}
-		$funcoes = $this->Funcao->find('first', array(/*'recursive'=>1,*/'conditions' => array('Funcao.' . $this->Funcao->primaryKey => $id)));
+		$funcoes = $this->Funcao->find('first', array('conditions' => array('Funcao.' . $this->Funcao->primaryKey => $id)));
         $this->set(compact('funcoes', $funcoes));
         $this->set('modal_title', __('FUNÇÃO - ').'<b>'.$funcoes['Funcao']['nome'].'</b>');
         $this->layout = 'modal';
@@ -60,6 +60,7 @@ class FuncoesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Funcao->create();
+            $this->request->data['Funcao']['nome'] = $this->convertem($this->request->data['Funcao']['nome']);
 			if ($this->Funcao->save($this->request->data)) {
 				$this->Session->setFlash(__('Função adicionada com sucesso!'), 'alert', array('class'=>'alert-success'));
 				return $this->redirect(array('action' => 'index'));
@@ -83,6 +84,7 @@ class FuncoesController extends AppController {
 			throw new NotFoundException(__('Função inválida.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+            $this->request->data['Funcao']['nome'] = $this->convertem($this->request->data['Funcao']['nome']);
 			if ($this->Funcao->save($this->request->data)) {
 				$this->Session->setFlash(__('Função alterada com sucesso!'), 'alert', array('class'=>'alert-success'));
 				return $this->redirect(array('action' => 'index'));

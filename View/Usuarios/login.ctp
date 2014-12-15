@@ -10,7 +10,7 @@
             <section class="input-box">
                 <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                    <input class="form-control" type="text" placeholder="Nome de usuário" name="data[Usuario][username]">
+                    <input class="form-control" type="text" placeholder="Nome de usuário" autofocus="" name="data[Usuario][username]">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>

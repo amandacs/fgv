@@ -75,7 +75,7 @@ class Cargo extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
 	);
 
 }

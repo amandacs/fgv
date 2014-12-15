@@ -227,20 +227,6 @@ class OrganizacoesController extends AppController {
  *
  * @return void
  */
-/*	public function add() {
-		if ($this->request->is('post')) {
-			$this->Organizacao->create();
-			if ($this->Organizacao->save($this->request->data)) {
-				$this->Session->setFlash(__('The organizacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The organizacao could not be saved. Please, try again.'));
-			}
-		}
-		$parentOrganizacoes = $this->Organizacao->ParentOrganizacao->find('list');
-		/*$chefes = $this->Organizacao->Chefe->find('list');
-		$this->set(compact('parentOrganizacoes'/*, 'chefes'));
-	}*/
 
     public function add($parent_id = null, $secretaria_id = null) {
         if (!$this->Organizacao->exists($parent_id)) {
@@ -249,7 +235,8 @@ class OrganizacoesController extends AppController {
 
         if ($this->request->is('post')) {
             $this->Organizacao->create();
-            $this->request->data['Organizacao']['acronimo'] = strtoupper($this->request->data['Organizacao']['acronimo']);
+            $this->request->data['Organizacao']['nome'] = $this->convertem($this->request->data['Organizacao']['nome']);
+            $this->request->data['Organizacao']['acronimo'] = $this->convertem($this->request->data['Organizacao']['acronimo']);
             $this->request->data['Organizacao']['parent_id'] = $parent_id;
             $this->request->data['Organizacao']['secretaria_id'] = $secretaria_id;
             if ($this->Organizacao->save($this->request->data)) {
@@ -287,6 +274,8 @@ class OrganizacoesController extends AppController {
             throw new NotFoundException(__('Organização inválida.'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
+            $this->request->data['Organizacao']['nome'] = $this->convertem($this->request->data['Organizacao']['nome']);
+            $this->request->data['Organizacao']['acronimo'] = $this->convertem($this->request->data['Organizacao']['acronimo']);
             if ($this->Organizacao->save($this->request->data)) {
                 $this->Session->setFlash(('Organização editada com sucesso!'), $this->ALERT_ELEMENT, array('class'=>'alert-success', 'escape'=>false));
                 return $this->redirect(array('action' => 'index'));

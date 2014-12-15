@@ -1,20 +1,28 @@
-<div class="perfis form">
-<?php echo $this->Form->create('Perfi'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Perfi'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('nome');
-		echo $this->Form->input('sort');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="col-md-8">
+    <div class="perfis form">
+        <?php
+        echo $this->Form->create('Perfi', array(
+            'inputDefaults' => array(
+                'label' => false,
+                'div' => false
+            )
+        ));
+        ?>
+        <fieldset>
+            <?php echo $this->Session->flash(); ?>
+            <legend>Editar Perfil</legend>
+            <?php echo $this->Form->input('id'); ?>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Perfi.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Perfi.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Perfis'), array('action' => 'index')); ?></li>
-	</ul>
+            <div class="form-group">
+                <label class="required">Nome:</label>
+                <?php echo $this->Form->input('nome', array('class' => 'form-control  uppercase max', 'required' => true, 'autofocus')); ?>
+            </div>
+
+        </fieldset>
+        <p class="pull-left">
+            <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
+            <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('class' => 'btn btn-danger')); ?>
+        </p>
+        <?php echo $this->Form->end(); ?>
+    </div>
 </div>

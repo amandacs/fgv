@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label class="required">Nome:</label>
-                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase', 'required' => true)); ?>
+                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase max', 'required' => true, 'autofocus')); ?>
             </div>
             <div class="form-group">
                 <label class="required">Cargo:</label>

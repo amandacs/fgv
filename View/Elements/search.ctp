@@ -1,6 +1,6 @@
-<div  style="background: #fff; z-index: 1;   display: inline-block; text-align: center;">
+<div class="col-md-10" style="background: #fff; z-index: 1; position: fixed; top: 40px; display: inline-block; text-align: center;">
 
-    <div style="width: 100%;">
+    <div class="col-md-8" style="width: 97%; right: 31px">
         <?php echo $this->Form->create('Usuario', array('action'=>'index', 'type'=>'GET'));?>
         <div class="input-group" style="margin: 30px 50px 0px 0px">
 

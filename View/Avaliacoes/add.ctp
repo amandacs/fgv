@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label class="required">Descrição:</label>
-                <?php echo $this->Form->input('descricao', array('type' => 'text', 'class' => 'form-control', 'required' => true)); ?>
+                <?php echo $this->Form->input('descricao', array('type' => 'text', 'class' => 'form-control uppercase max', 'required' => true, 'autofocus')); ?>
             </div>
             <div class="form-group">
                 <label class="required">Prazo Avaliado:</label>

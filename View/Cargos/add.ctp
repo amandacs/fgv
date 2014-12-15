@@ -10,12 +10,10 @@
         ?>
         <fieldset>
             <?php echo $this->Session->flash(); ?>
-
             <legend>Adicionar Cargo</legend>
-
             <div class="form-group">
                 <label class="required">Nome:</label>
-                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase', 'required' => true)); ?>
+                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase med', 'required' => true, 'autofocus')); ?>
             </div>
         </fieldset>
 

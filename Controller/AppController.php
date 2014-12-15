@@ -49,6 +49,16 @@ class AppController extends Controller {
         }
     }
 
+    public function returnElem($id){
+        if($id == 1){
+            return $this->Session->read('Auth.User.id');
+        }elseif($id == 2){
+            return date('Y-m-d H:i:s');
+        }else{
+            return null;
+        }
+    }
+
     public function arrayToDB($array){
         if($array == null)
             return null;
@@ -59,6 +69,7 @@ class AppController extends Controller {
 
     }
 
+    /*Creio que não estou utilizando*/
     public function dataBeforeSave($data){
         if($data == null){
             return null;
@@ -117,17 +128,10 @@ class AppController extends Controller {
         return $elements;
     }
 
-    /*public function arrayToDB($array) {
-        if($array === NULL)
-            return NULL;
-
-        $arrayDB = '{';
-        foreach($array as $item){
-
-            $arrayDB = $arrayDB.$item.',';
-        }
-        $arrayDB[strlen($arrayDB)-1] = '}';
-        return $arrayDB;
-    }*/
+    function convertem($term) {
+        $palavra = strtr(strtoupper($term),"àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ","ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß");
+        //elseif ($tp == "0") $palavra = strtr(strtolower($term),"ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÜÚÞß","àáâãäåæçèéêëìíîïðñòóôõö÷øùüúþÿ");
+        return $palavra;
+    }
 }
 

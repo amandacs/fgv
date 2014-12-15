@@ -19,19 +19,19 @@
                     <?php echo $this->Form->input('id');?>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label class="required">Nome</label>
-                            <?php echo $this->Form->input('nome', array('class' => 'form-control', 'required' => 'required')); ?>
+                            <label class="required">Nome:</label>
+                            <?php echo $this->Form->input('nome', array('class' => 'form-control uppercase', 'required' => true, 'autofocus')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label class="required">Sigla</label>
+                            <label class="required">Sigla:</label>
                             <?php echo $this->Form->input('acronimo', array('class' => 'uppercase form-control', 'required' => 'required')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label>Telefone</label>
+                            <label>Telefone:</label>
                             <?php echo $this->Form->input('telefone', array('class' => 'telefone form-control')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label>Ramal</label>
+                            <label>Ramal:</label>
                             <?php echo $this->Form->input('ramal', array('class' => 'uppercase form-control')); ?>
                         </div>
                     </div>

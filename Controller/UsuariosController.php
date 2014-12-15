@@ -81,18 +81,12 @@ class UsuariosController extends AppController {
             ),*/
             'recursive' => -1
         ));
-        $usuarios= $this->paginate();
-        if($usuarios == null){
-            $this->Session->setFlash(__('Nenhum resultado encontrado para sua pesquisa!.'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
-            $this->redirect(array('action' => 'index'));
-        }
-
         $this->set('testes',$this->Organizacao->find('all'));
         $this->set('organizacoes', $this->Organizacao->find('all', array('fields' => array('id', 'nome', 'acronimo'),'recursive' => -1)));
         $this->set('perfil', $perfil);
         $this->set('org_nome', $org_nome);
         $this->set('usuarioAvaliacoes', $usuarioAvaliacoes);
-        $this->set('usuarios', $usuarios);
+        $this->set('usuarios', $this->paginate());
         $this->Session->write('search', true);
         $this->render('index');
         $this->set('title_for_layout', 'Usuários');
@@ -125,7 +119,7 @@ class UsuariosController extends AppController {
 
         $this->redirect($url, null, true);
     }*/
-    public function teste(){}
+
     /**
      * view method
      *
@@ -158,30 +152,8 @@ class UsuariosController extends AppController {
             ),
             'recursive' => -1
         ));
-        $perguntas = $this->UsuarioAvaliacao->UsuarioResposta->Pergunta->find('all', array(
-            'order'=>array(
-                'Grupo.ordem' => 'ASC',
-                'Pergunta.ordem' => 'ASC',
-            ),
-            'joins' => array(
-                array(
-                    'table' => 'usuarios',
-                    'alias' => 'Usuario',
-                    'type' => 'LEFT',
-                    'conditions' => array(
-                        'Usuario.id' => $id,
-                    ),
-                    'fields' => 'id',
-                )
-            ),
-            'conditions'=>array(
-                'Usuario.funcao_id = ANY(Pergunta.funcao_array)',
-            )
-        ));
-        $this->loadModel('Grupo');
-        $gruponome = $this->Grupo->find('list',array( 'fields' => array('Grupo.id', 'Grupo.nome')));
         $this->set('ava',$ava);
-        $this->set(compact('avaliacao', 'usuarioAvaliacoes', 'usuario', 'perguntas','gruponome'));
+        $this->set(compact('avaliacao', 'usuarioAvaliacoes', 'usuario'));
         $this->set('title_for_layout', 'Usuário');
         $this->set('perfil_id', $usuario['Usuario']['perfil_id']);
     }
@@ -211,6 +183,44 @@ class UsuariosController extends AppController {
         $this->set('title_for_layout', 'Usuários');
     }
     /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function edit($id = null) {
+        if (!$this->Usuario->exists($id)) {
+            throw new NotFoundException(__('Usuário inválido.'));
+        }
+        $usuario = $this->Usuario->find('first',array(
+            'conditions' => array(
+                'Usuario.' . $this->Usuario->primaryKey => $id
+            ),
+            'recursive'=>-1,
+        ));
+        if ($this->request->is(array('post', 'put'))) {
+
+            if ($this->Usuario->save($this->request->data)) {
+                $this->Session->setFlash(__('Usuário alterado com sucesso!'), 'alert', array('class'=>'alert-success'));
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('O usuário não pôde ser alterado. Por favor, tente novamente.'), 'alert', array('class' => 'alert-danger'));
+            }
+
+        }
+        $this->request->data = $usuario;
+        $organizacoes = $this->Usuario->Organizacao->getChildOrganization(2);
+        $cargos = $this->Usuario->Cargo->find('list');
+        $classes = $this->Usuario->Classe->find('list', array('conditions' => array('Classe.cargo_id'=>$usuario['Usuario']['cargo_id']),
+            'order' => array('Classe.id'=>'ASC')));
+        $perfils = $this->Usuario->Perfil->find('list');
+        $funcoes = $this->Usuario->Funcao->find('list', array('conditions' => array('Funcao.cargo_id'=>$usuario['Usuario']['cargo_id']),
+            'order' => array('Funcao.id'=>'ASC')));
+        $this->set(compact('organizacoes', 'cargos', 'perfils', 'funcoes', 'classes', 'usuario'));
+        $this->set('title_for_layout', 'Usuários');
+    }
+    /**
      * listar_classes method
      *
      * @throws NotFoundException
@@ -226,6 +236,12 @@ class UsuariosController extends AppController {
             $this->set('parametro', $this->params['url']['cargoId']);
         }
     }
+    /**
+     * listar_funcoes method
+     *
+     * @throws NotFoundException
+     * @return void
+     */
     public function listar_funcoes_json() {
         $this->layout = false;
         if ($this->RequestHandler->isAjax()) {
@@ -236,63 +252,6 @@ class UsuariosController extends AppController {
             $this->set('parametro', $this->params['url']['cargoId']);
         }
     }
-
-    public function view_indicadores($grupo, $id) {
-        $this->loadModel('Grupo');
-        $gruponome = $this->Grupo->find('list',array( 'fields' => array('Grupo.id', 'Grupo.nome')));
-        $this->loadModel('Pergunta');
-        $perguntas = $this->Pergunta->find('all',
-            array(
-                'fields' => array('Pergunta.id', 'Pergunta.descricao','Pergunta.ordem'),
-                'conditions' => array('Pergunta.grupo_id'=>$grupo),
-                'order'=>array('Pergunta.ordem' => 'ASC')));
-        $this->loadModel('UsuarioAvaliacao');
-        $ava =  $this->UsuarioAvaliacao->find ('first', array(
-            'conditions' => array(
-                'UsuarioAvaliacao.avaliado_id' => $id,
-            )));
-        $this->set(compact('grupo', 'gruponome','ava','perguntas'));
-
-    }
-    /**
-     * edit method
-     *
-     * @throws NotFoundException
-     * @param string $id
-     * @return void
-     */
-    public function edit($id = null) {
-        $date = date('Y-m-d H:i:s');
-        if (!$this->Usuario->exists($id)) {
-            throw new NotFoundException(__('Usuário inválido.'));
-        }
-        $usuario = $this->Usuario->find('first',array(
-            'conditions' => array(
-                'Usuario.' . $this->Usuario->primaryKey => $id
-            ),
-            'recursive'=>-1,
-        ));
-        if ($this->request->is(array('post', 'put'))) {
-
-            $this->request->data['Usuario']['data_atualizacao'] = $date;
-            if ($this->Usuario->save($this->request->data)) {
-                $this->Session->setFlash(__('Usuário alterado com sucesso!'), 'alert', array('class'=>'alert-success'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('O usuário não pôde ser salvo. Por favor, tente novamente.'), 'alert', array('class' => 'alert-danger'));
-            }
-
-        }
-        $this->request->data = $usuario;
-        $organizacoes = $this->Usuario->Organizacao->getChildOrganization(2);
-        $cargos = $this->Usuario->Cargo->find('list');
-        $classes = $this->Usuario->Classe->find('first', array('conditions' => array('Classe.cargo_id'=>0)));
-        $perfils = $this->Usuario->Perfil->find('list');
-        $funcoes = $this->Usuario->Funcao->find('first', array('conditions' => array('Funcao.cargo_id'=>0)));
-        $this->set(compact('organizacoes', 'cargos', 'perfils', 'funcoes', 'classes', 'usuario'));
-        $this->set('title_for_layout', 'Usuários');
-    }
-
     /**
      * meusDados method
      *
@@ -301,7 +260,6 @@ class UsuariosController extends AppController {
      * @return void
      */
     public function meusDados($id = null) {
-        $date = date('Y-m-d H:i:s');
         if (!$this->Usuario->exists($id)) {
             throw new NotFoundException(__('Usuário inválido'));
         }
@@ -320,7 +278,6 @@ class UsuariosController extends AppController {
                 $this->Session->setFlash(('Senha atual incorreta! Por favor, tente novamente! '), 'alert', array('class'=>'alert-danger', 'escape'=>false));
             }else{
                 $this->request->data['Usuario']['password'] = $new_password;
-                $this->request->data['Usuario']['data_atualizacao'] = $date;
                 if ($this->Usuario->save($this->request->data)) {
                     $this->Session->setFlash(__('Usuário alterado com sucesso!'), 'alert', array('class'=>'alert-success'));
                     return $this->redirect(array('action' => 'login'));
@@ -346,9 +303,9 @@ class UsuariosController extends AppController {
         if (!$this->Usuario->exists($id)) {
             throw new NotFoundException(__('Usuário inválido.'));
         }
-        $senha = Security::hash('senha', 'md5', false);
+        $senha = Security::hash('acesso', 'md5', false);
         $this->Usuario->updateAll(
-            array('Usuario.password' => "'".$senha."'" , 'Usuario.data_atualizacao' => "'".$date."'"),
+            array('Usuario.password' => "'".$senha."'" , 'Usuario.modified' => "'".$date."'"),
             array('Usuario.id' => $id)
         );
         $this->Session->setFlash(__('A senha do usuário foi alterada com sucesso!'), 'alert', array('class'=>'alert-success'));
@@ -379,7 +336,6 @@ class UsuariosController extends AppController {
             $user = $this->Usuario->find('first', array(
                     'fields' => array(
                         'Usuario.*',
-                        //'Role.*',
                         'Organizacao.*'
                     ),
                     'conditions' => array(
@@ -394,7 +350,6 @@ class UsuariosController extends AppController {
                     'id' => $user['Usuario']['id']
                 );
                 if($this->Usuario->save($login)){
-                    // $user['Usuario']['Role'] = $user['Role'];
                     $user['Usuario']['Organizacao'] = $user['Organizacao'];
                     $this->Auth->login($user['Usuario']);
                     if($user['Usuario']['perfil_id']<=2)
@@ -411,44 +366,6 @@ class UsuariosController extends AppController {
         }
         $this->layout = 'login';
     }
-   /* public  function login(){
-        if ($this->request->is('post')) {
-            $user = $this->Usuario->find('first', array(
-                    'fields' => array(
-                        'Usuario.*',
-                        //'Role.*',
-                        'Organizacao.*'
-                    ),
-                    'conditions' => array(
-                        'Usuario.username' => $this->data['Usuario']['username'],
-                        'Usuario.password' => Security::hash($this->data['Usuario']['password'], 'md5', false),
-                    )
-                )
-            );
-            if($user != false){
-                unset($user['Usuario']['password']);
-                $login = array(
-                    'id' => $user['Usuario']['id']
-                );
-                if($this->Usuario->save($login)){
-                    // $user['Usuario']['Role'] = $user['Role'];
-                    $user['Usuario']['Organizacao'] = $user['Organizacao'];
-                    $this->Auth->login($user['Usuario']);
-                    if($user['Usuario']['perfil_id']==1)
-                    {
-                        $this->redirect($this->Auth->redirectUrl(array('action'=>'index')));
-                    }
-                    else{
-                        $this->redirect($this->Auth->redirectUrl(array('action'=>'view',$user['Usuario']['id'])));
-                    }
-                }
-            }else{
-                $this->Session->setFlash(__('Usuário e/ou senha inválidos.'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
-            }
-        }
-        $this->layout = 'login';
-    }*/
-
 
     public function logout(){
         $this->Session->delete('Usuario');

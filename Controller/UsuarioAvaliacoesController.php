@@ -88,7 +88,10 @@ class UsuarioAvaliacoesController extends AppController {
                 )
             ),
             'conditions'=>array(
-                'Usuario.classe_id = ANY(Pergunta.classe_array)',
+                'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)' ,
+                'Usuario.funcao_id = Grupo.funcao_id')
+               // 'Usuario.classe_id = ANY(Pergunta.classe_array)',
+                //'Usuario.funcao_id = Pergunta.funcao_id'
             )
         ));
         $this->set(compact('gruponome', 'perguntas', 'usuarios'));
@@ -140,7 +143,7 @@ class UsuarioAvaliacoesController extends AppController {
                 )
             ),
             'conditions'=>array(
-                'Usuario.funcao_id = ANY(Pergunta.funcao_array)',
+                'Usuario.classe_id = ANY(Pergunta.classe_array)',
             )
         ));
         $this->set(compact('gruponome'));

@@ -21,8 +21,15 @@ class PerfisController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Perfi->recursive = 0;
-		$this->set('perfis', $this->Paginator->paginate());
+        $order = array('Perfil.id'=>'ASC');
+        $this->paginate = array(
+            'recursive'=>0,
+            'fields'=>array(
+                'Perfi.*',
+            ),
+            'order'=>$order,
+        );
+        $this->set('perfis', $this->Paginator->paginate());
 	}
 
 /**
@@ -33,11 +40,14 @@ class PerfisController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+        $this->loadModel('Usuario');
 		if (!$this->Perfi->exists($id)) {
-			throw new NotFoundException(__('Invalid perfi'));
+			throw new NotFoundException(__('Perfil inválido.'));
 		}
-		$options = array('conditions' => array('Perfi.' . $this->Perfi->primaryKey => $id));
-		$this->set('perfi', $this->Perfi->find('first', $options));
+		$perfis = $this->Perfi->find('first', array('conditions' => array('Perfi.' . $this->Perfi->primaryKey => $id)));
+		$this->set('perfis', $perfis);
+        $this->set('modal_title', __('PERFIL - '). '<b>'.$perfis['Perfi']['nome'].'</b>');
+        $this->layout = ('modal');
 	}
 
 /**
@@ -46,13 +56,24 @@ class PerfisController extends AppController {
  * @return void
  */
 	public function add() {
+
 		if ($this->request->is('post')) {
 			$this->Perfi->create();
+            $perfis = $this->Perfi->find('first', array(
+                'fields' => 'MAX(Perfi.sort) AS "Perfi__sort"',
+                'recursive'=>-1,
+            ));
+            if ($perfis != null) {
+                $this->request->data['Perfi']['sort'] = $perfis['Perfi']['sort'] + 1;
+            } else {
+                $this->request->data['Perfi']['sort'] = 1;
+            }
+            $this->request->data['Perfi']['nome'] = $this->convertem($this->request->data['Perfi']['nome']);
 			if ($this->Perfi->save($this->request->data)) {
-				$this->Session->setFlash(__('The perfi has been saved.'));
+				$this->Session->setFlash(__('O perfil foi adicionado com sucesso!'), 'alert', array('class' => 'alert-success', 'escape'=>false));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The perfi could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('O perfil não pôde ser adicionado. Por favor, tente novamente.'), 'alert', array('class' => 'alert-danger', 'escape'=>false));
 			}
 		}
 	}
@@ -69,6 +90,7 @@ class PerfisController extends AppController {
 			throw new NotFoundException(__('Invalid perfi'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+            $this->request->data['Perfi']['nome'] = $this->convertem($this->request->data['Perfi']['nome']);
 			if ($this->Perfi->save($this->request->data)) {
 				$this->Session->setFlash(__('The perfi has been saved.'));
 				return $this->redirect(array('action' => 'index'));

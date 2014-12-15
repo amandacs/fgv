@@ -15,7 +15,7 @@
             <?php /*endif; */?>
             <div class="form-group">
                 <label class="required">Nome:</label>
-                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control max', 'required' => true)); ?>
+                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase max', 'required' => true, 'autofocus')); ?>
             </div>
             <div class="form-group">
                 <label class="required">Matrícula:</label>
@@ -42,15 +42,15 @@
             </div>
             <div class="form-group">
                 <label class="required">Senha:</label>
-                <?php echo $this->Form->input('password', array('id' => 'password', 'type' => 'password', 'class' => 'form-control erro med', 'required' => true)); ?>
+                <?php echo $this->Form->input('password', array('id' => 'password', 'type' => 'password', 'class' => 'form-control erro min', 'required' => true)); ?>
             </div>
             <div class="form-group">
                 <label class="required">Confirme a senha:</label>
-                <?php echo $this->Form->input('confirm_password', array('id'=>'confirm_password','type' => 'password', 'class' => 'form-control erro med', 'required' => true)); ?>
+                <?php echo $this->Form->input('confirm_password', array('id'=>'confirm_password','type' => 'password', 'class' => 'form-control erro min', 'required' => true)); ?>
             </div>
             <div class="form-group">
                 <label class="required">Organização:</label>
-                <?php echo $this->Form->input('organizacao_id', array('class' => 'form-control med', 'required' => true, 'empty'=>'Selecione a organização do usuário...'));?>
+                <?php echo $this->Form->input('organizacao_id', array('class' => 'form-control max', 'required' => true, 'empty'=>'Selecione a organização do usuário...'));?>
             </div>
             <div class="form-group">
                 <label class="required">Perfil:</label>
@@ -58,15 +58,15 @@
             </div>
             <div>
                 <label class="required">Cargo:</label>
-                <?php echo $this->Form->input('cargo_id', array('type' => 'select', 'options' => $cargos, 'id' => 'cargos', 'class' => 'form-control max', 'required' => true, 'empty'=>'Selecione o cargo do usuário...')); ?>
+                <?php echo $this->Form->input('cargo_id', array('type' => 'select', 'options' => $cargos, 'id' => 'cargos', 'class' => 'form-control med', 'required' => true, 'empty'=>'Selecione o cargo do usuário...')); ?>
             </div>
             <div class="form-group">
                 <label class="required" style="margin-top: 10px;">Classe:</label>
-                <?php echo $this->Form->input('classe_id', array('type' => 'select', 'class' => 'form-control max', 'id' => 'classes', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário....')); ?>
+                <?php echo $this->Form->input('classe_id', array('type' => 'select', 'class' => 'form-control med', 'id' => 'classes', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário....')); ?>
             </div>
             <div class="form-group">
                 <label class="required">Função:</label>
-                <?php echo $this->Form->input('funcao_id', array('type' => 'select', 'id' => 'funcoes', 'class' => 'form-control max', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário...')); ?>
+                <?php echo $this->Form->input('funcao_id', array('type' => 'select', 'id' => 'funcoes', 'class' => 'form-control med', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário...')); ?>
             </div>
         </fieldset>
         <p class="pull-left">

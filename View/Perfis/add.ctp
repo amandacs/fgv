@@ -1,18 +1,26 @@
-<div class="perfis form">
-<?php echo $this->Form->create('Perfi'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Perfi'); ?></legend>
-	<?php
-		echo $this->Form->input('nome');
-		echo $this->Form->input('sort');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="col-md-8">
+    <div class="perfis form">
+        <?php
+        echo $this->Form->create('Perfil', array(
+            'inputDefaults' => array(
+                'label' => false,
+                'div' => false
+            )
+        ));
+        ?>
+        <fieldset>
+            <?php echo $this->Session->flash(); ?>
+            <legend>Adicionar Perfil</legend>
 
-		<li><?php echo $this->Html->link(__('List Perfis'), array('action' => 'index')); ?></li>
-	</ul>
+            <div class="form-group">
+                <label class="required">Nome:</label>
+                <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase max', 'required' => true, 'autofocus')); ?>
+            </div>
+        </fieldset>
+        <p class="pull-left">
+            <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
+            <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('class' => 'btn btn-danger')); ?>
+        </p>
+        <?php echo $this->Form->end(); ?>
+    </div>
 </div>

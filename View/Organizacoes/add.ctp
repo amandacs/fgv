@@ -17,19 +17,19 @@
                 <fieldset>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label class="required">Nome</label>
-                            <?php echo $this->Form->input('nome', array('class' => 'uppercase form-control', 'required' => 'required')); ?>
+                            <label class="required">Nome:</label>
+                            <?php echo $this->Form->input('nome', array('class' => 'uppercase form-control uppercase', 'required' => true, 'autofocus')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label class="required">Sigla</label>
-                            <?php echo $this->Form->input('sigla', array('class' => 'uppercase form-control', 'required' => 'required')); ?>
+                            <label class="required">Sigla:</label>
+                            <?php echo $this->Form->input('acronimo', array('class' => 'uppercase form-control', 'required' => 'required')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label>Telefone</label>
+                            <label>Telefone:</label>
                             <?php echo $this->Form->input('telefone', array('class' => 'telefone form-control')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label>Ramal</label>
+                            <label>Ramal:</label>
                             <?php echo $this->Form->input('ramal', array('class' => 'uppercase form-control')); ?>
                         </div>
                 </fieldset>
@@ -44,3 +44,6 @@
         </div>
     </div>
 </div>
+<?php $this->start('script'); ?>
+<?php echo $this->Html->script('default'); ?>
+<?php $this->end(); ?>

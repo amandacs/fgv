@@ -33,7 +33,9 @@ class AppModel extends Model {
 
     public function beforeSave($options = array()) {
         App::uses('CakeSession', 'Model/Datasource');
+        /*$user = CakeSession::read('Auth.User');*/
         $user = CakeSession::read('Auth.User');
+        /*$user = $user->setaIdUsuario($user);*/
 
         if (!isset($this->data[$this->alias]['id'])) {
             $this->data[$this->alias]['created_by'] = $user['id'];
@@ -44,4 +46,13 @@ class AppModel extends Model {
         }
         return true;
     }
+
+    /*public function  setaIdUsuario($user){
+        if(!isset($user)){
+            $user['created_by'] = $user['id'];
+        }else{
+            $user['updated_by'] = $user['id'];
+        }
+        return true;
+    }*/
 }

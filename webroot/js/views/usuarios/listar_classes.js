@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 function popularListaDeClasses(classes, idClasse) {
-    var options = '<option value>Selecione a classe do usuário</option>';
+    var options = '<option value style="font-weight: bold">Selecione a classe do usuário...</option>';
     if(classes != null) {
         $.each(classes, function(index, classe){
             if(idClasse == index)

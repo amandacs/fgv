@@ -28,7 +28,7 @@
                     <td class="actions col-lg-1">
                         <?php echo $this->Html->link('<i class="glyphicon glyphicon-file"></i>', array('action' => 'view', $cargo['Cargo']['id']), array('title'=>'Visualizar', 'data-toggle'=>'modal', 'data-target'=>'#modal', 'escape' => false)); ?>
                         <?php echo $this->Html->link('<i class="glyphicon glyphicon-pencil"></i>', array('action' => 'edit', $cargo['Cargo']['id']), array('title'=>'Editar','escape' => false)); ?>
-                        <?php echo $this->Form->postLink('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $cargo['Cargo']['id']), array('title'=>'Excluir','escape' => false), __('Are you sure you want to delete # %s?', $cargo['Cargo']['id'])); ?>
+                        <?php echo $this->Form->postLink('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $cargo['Cargo']['id']), array('title'=>'Excluir','escape' => false), __('Tem certeza que deseja ecluir o cargo  #%s?', $cargo['Cargo']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

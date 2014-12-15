@@ -1,11 +1,11 @@
 
 <?php $search = $this->Session->read('search');?>
-<div class="index row" >
-    <div>
+<div class="index row" style="margin-top: 50px">
+    <div class="row">
 
         <?=$this->element('search');?><!--CAMPO DE BUSCA-->
-        <div >
-            <div >
+        <div class="row" style="margin-top: 65px">
+            <div class="row" >
                 <div style="margin: 0 auto;text-align: center!important;">
                     <?php echo $this->Session->flash(); ?>
                 </div>
@@ -62,7 +62,7 @@
                                     <td>
                                         <?php echo h($usuario['Cargo']['nome']); ?>&nbsp;
                                     </td>
-                                    <td>
+                                    <td style="text-align: center">
                                         <?php if(isset($usuario['UsuarioAvaliacao']['id'])): ?>
                                             <i class="glyphicon glyphicon-ok" style="color: green"></i>
                                         <?php else: ?>
@@ -128,7 +128,7 @@
                                             <?php }?>
                                         <?php }?>
                                     <?php }?>
-                                    <td>
+                                    <td style="text-align: center">
                                         <?php if(isset($usuario['UsuarioAvaliacao']['id']) and !is_null($usuario['UsuarioAvaliacao']['avaliador_id'])): ?>
                                             <i class="glyphicon glyphicon-ok" style="color: green"></i>
                                         <?php else: ?>

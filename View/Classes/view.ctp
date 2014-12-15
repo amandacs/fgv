@@ -39,8 +39,6 @@
             <th><?php echo __('Matricula'); ?></th>
             <th><?php echo __('CPF'); ?></th>
             <th><?php echo __('Email'); ?></th>
-            <!--<th><?php /*echo __('Organização Id'); */?></th>
-		<th><?php /*echo __('Cargo'); */?></th>-->
             <th class="actions"><?php echo __('Actions'); ?></th>
         </tr>
         <?php foreach ($classes['Usuario'] as $usuario): ?>
@@ -50,8 +48,6 @@
                 <td><?php echo $usuario['matricula']; ?>&nbsp;</td>
                 <td><?php echo $usuario['cpf']; ?>&nbsp;</td>
                 <td><?php echo $usuario['email']; ?>&nbsp;</td>
-                <!--<td><?php /*echo $usuario['organizacao_id']; */?>&nbsp;</td>
-			<td><?php /*echo $cargos['Cargo']['nome']; */?>&nbsp;</td>-->
                 <td class="actions">
                     <?php echo $this->Html->link('<i class="glyphicon glyphicon-pencil"></i>', array('controller'=>'usuarios', 'action' => 'edit', $usuario['id']), array('title'=>'Editar','escape' => false)); ?>
                     <?php echo $this->Form->postLink('<i class="glyphicon glyphicon-trash"></i>', array('controller'=>'usuarios', 'action' => 'delete', $usuario['id']), array('title'=>'Excluir','escape'=>false), __('Tem certeza que deseja excluir o usuário  #%s?', $usuario['id'])); ?>

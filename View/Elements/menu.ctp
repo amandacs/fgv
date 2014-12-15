@@ -66,6 +66,9 @@ $controllers = array('grupos', 'perguntas', 'graus', 'perguntas','avaliacoes', '
                             </li>
                             <li class="divider"></li>
                             <li class="dropdown-header">USUÁRIOS</li>
+                            <li class="<?php echo $action_controller == 'perfis-index' ? 'active' : '' ?>">
+                                <?php echo $this->Html->link('Perfis', array('action' => 'index', 'controller' => 'perfis')); ?>
+                            </li>
                             <li>
                                 <?php echo $this->Html->link('Usuários', array('controller' => 'usuarios', 'action' => 'index')); ?>
                             </li>

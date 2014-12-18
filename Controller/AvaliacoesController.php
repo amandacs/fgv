@@ -44,6 +44,10 @@ class AvaliacoesController extends AppController {
 		}
 		$avaliacoes = $this->Avaliacao->find('first', array('conditions' => array('Avaliacao.' . $this->Avaliacao->primaryKey => $id)));
         $this->set('avaliacoes', $avaliacoes);
+        /*Debugger::dump($avaliacoes);
+        $perguntas = $this->Avaliacao->Pergunta->find('all', array('recursive' => 0,'order' => array('Pergunta.grupo_id'=>'ASC', 'Pergunta.ordem'=>'ASC'),
+            'conditions' => array('Pergunta.avaliacao_id' => $id)));
+        $this->set(compact('perguntas', 'avaliacao'));*/
         $this->set('modal_title', __('AVALIAÇÃO - ').'<b>'.$avaliacoes['Avaliacao']['descricao'].'</b>');
         $this->layout = 'modal';
 	}
@@ -58,6 +62,10 @@ class AvaliacoesController extends AppController {
 			$this->Avaliacao->create();
             $this->request->data['Avaliacao']['prazo'] = $this->dataBeforeSave($this->request->data['Avaliacao']['prazo']);
             $this->request->data['Avaliacao']['prazo_avaliador'] = $this->dataBeforeSave($this->request->data['Avaliacao']['prazo_avaliador']);
+            /*$this->request->data['Avaliacao']['prazo'] = $this->request->data['Avaliacao']['prazo'].$this->request->data['Avaliacao']['hora_avaliado'];
+            $this->request->data['Avaliacao']['prazo_avaliador'] = $this->request->data['Avaliacao']['prazo_avaliador'].$this->request->data['Avaliacao']['hora_avaliador'];*/
+            Debugger::dump($this->data['Avaliacao']['prazo']);
+            Debugger::dump($this->data['Avaliacao']['prazo_avaliador']);
             $this->request->data['Avaliacao']['descricao'] = $this->convertem($this->request->data['Avaliacao']['descricao']);
 			if ($this->Avaliacao->save($this->request->data)) {
 				$this->Session->setFlash(__('Avaliação salva com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
@@ -83,6 +91,8 @@ class AvaliacoesController extends AppController {
             $this->request->data['Avaliacao']['prazo'] = $this->dataBeforeSave($this->request->data['Avaliacao']['prazo']);
             $this->request->data['Avaliacao']['prazo_avaliador'] = $this->dataBeforeSave($this->request->data['Avaliacao']['prazo_avaliador']);
             $this->request->data['Avaliacao']['descricao'] = $this->convertem($this->request->data['Avaliacao']['descricao']);
+            Debugger::dump($this->request->data['Avaliacao']['prazo']);
+            Debugger::dump($this->request->data['Avaliacao']['prazo_avaliador']);
 			if ($this->Avaliacao->save($this->request->data)) {
 				$this->Session->setFlash(__('Avaliação alterada com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
 				return $this->redirect(array('action' => 'index'));

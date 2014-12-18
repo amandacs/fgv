@@ -17,6 +17,10 @@ class Pergunta extends AppModel {
  * @var array
  */
     public $displayField = 'descricao';
+    /*public $displayField = 'pergunta';
+    public $virtualFields = array(
+        'pergunta' => "CONCAT(Pergunta.ordem,'-', Pergunta.descricao)"
+    );*/
     public $validate = array(
         'ordem' => array(
             'notEmpty' => array(
@@ -24,6 +28,7 @@ class Pergunta extends AppModel {
             ),
         ),
     );
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
  * belongsTo associations

@@ -44,8 +44,8 @@ class PerfisController extends AppController {
 		if (!$this->Perfi->exists($id)) {
 			throw new NotFoundException(__('Perfil inválido.'));
 		}
-		$perfis = $this->Perfi->find('first', array('conditions' => array('Perfi.' . $this->Perfi->primaryKey => $id)));
-		$this->set('perfis', $perfis);
+        $perfis = $this->Perfi->find('first', array('conditions' => array('Perfi.' . $this->Perfi->primaryKey => $id)));
+        $this->set('perfis', $perfis);
         $this->set('modal_title', __('PERFIL - '). '<b>'.$perfis['Perfi']['nome'].'</b>');
         $this->layout = ('modal');
 	}
@@ -56,7 +56,6 @@ class PerfisController extends AppController {
  * @return void
  */
 	public function add() {
-
 		if ($this->request->is('post')) {
 			$this->Perfi->create();
             $perfis = $this->Perfi->find('first', array(

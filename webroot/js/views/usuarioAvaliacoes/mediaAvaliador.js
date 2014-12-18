@@ -12,7 +12,7 @@ function calcula_media(el){
             total += parseInt(valor);
         }
     });
-    var media = parseInt(total/qtdePerguntas);
+    var media =(total/qtdePerguntas);
     $('#media_' + alias + '_' + grupoId).val(media);
 }
 

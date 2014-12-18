@@ -5,8 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property Competencia $Competencia
  * @property Pergunta $Pergunta
- * @property Classe $Classe
- * @property Funcao $Funcao
  */
 class Grupo extends AppModel {
 
@@ -28,6 +26,12 @@ class Grupo extends AppModel {
                 'rule' => array('numeric'),
             ),
         ),
+		'observacao' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+			),
+		),
+
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

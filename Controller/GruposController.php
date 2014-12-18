@@ -50,6 +50,10 @@ class GruposController extends AppController {
         }
         $grupos = $this->Grupo->find('first', array('conditions' => array('Grupo.' . $this->Grupo->primaryKey => $id)));
         $this->set('grupos', $grupos);
+        /*Debugger::dump($grupos);
+        $perguntas = $this->Grupo->Pergunta->find('all', array('order' => array('Pergunta.ordem'=>'ASC'),
+            'conditions' => array('Pergunta.grupo_id' => $id)));
+        $this->set(compact('perguntas', 'grupos'));*/
         $this->set('modal_title', __('Grupo - ') . ' <b>'.$grupos['Grupo']['nome'].'</b>');
         $this->layout = 'modal';
     }
@@ -69,7 +73,9 @@ class GruposController extends AppController {
             $grupos = $this->Grupo->find('first', array(
                 'recursive'=>-1,
                 'fields' => 'MAX(Grupo.ordem) AS "Grupo__ordem"',
+                /*'conditions' => array('Grupo.competencia_id' => $this->request->data['Grupo']['competencia_id'])*/
             ));
+            Debugger::dump($grupos);
             if ($grupos != null) {
                 $this->request->data['Grupo']['ordem'] = $grupos['Grupo']['ordem'] + 1;
             } else {

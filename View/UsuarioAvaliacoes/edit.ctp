@@ -15,7 +15,7 @@
             ));
             ?>
             <?php echo $this->Form->input('id');?>
-            <legend style="font-weight: bold; font-size: 26px"> <?php echo $perguntas[0]['Avaliacao']['descricao']; ?> <span style="color: red; font-size: 17px; padding-left: 25%">*Todas as questões são de preenchimento obrigatório.</span></legend>
+            <legend style="font-weight: bold; font-size: 26px"> <?php echo $perguntas[0]['Avaliacao']['descricao']; ?><br> <span style="color: red; font-size: 17px">*Todas as questões são de preenchimento obrigatório.</span></legend>
             <?php if($grupos == 0)?>
             <?php foreach ($grupos as $grupo):?>
                 <?php $total = 0; ?><!-- total pra media avaliado-->
@@ -58,17 +58,6 @@
             <?php endforeach; ?>
             <!-- PONTOS FORTES E FRACOS -->
             <div id="quadro_geral">
-                <div class="panel panel-collapse" id="pontos_fortes">
-                    <h4> PONTOS FORTES: </h4>
-                    <?php foreach ($grupos as $grupo):?>
-                        <span id="ponto_forte_<?php echo $grupo;?>"> </span>
-                        <?php foreach ($perguntas as $i=>$pergunta): ?>
-                            <?php if ($pergunta['Grupo']['id'] == $grupo): ?>
-                                <span id="ponto_forte_<?php echo $grupo; ?>_<?php echo $pergunta['Pergunta']['ordem']?>"></span>
-                            <?php endif ?>
-                        <?php endforeach; ?>
-                    <?php endforeach; ?>
-                </div>
                 <div class="panel panel-collapse" id="pontos_fracos">
                     <h4>PONTOS FRACOS:</h4>
                     <?php foreach ($grupos as $grupo):?>
@@ -76,6 +65,17 @@
                         <?php foreach ($perguntas as $i=>$pergunta): ?>
                             <?php if ($pergunta['Grupo']['id'] == $grupo): ?>
                                 <span id="ponto_fraco_<?php echo $grupo; ?>_<?php echo $pergunta['Pergunta']['ordem']?>"></span>
+                            <?php endif ?>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <div class="panel panel-collapse" id="pontos_fortes">
+                    <h4> PONTOS FORTES: </h4>
+                    <?php foreach ($grupos as $grupo):?>
+                        <span id="ponto_forte_<?php echo $grupo;?>"> </span>
+                        <?php foreach ($perguntas as $i=>$pergunta): ?>
+                            <?php if ($pergunta['Grupo']['id'] == $grupo): ?>
+                                <span id="ponto_forte_<?php echo $grupo; ?>_<?php echo $pergunta['Pergunta']['ordem']?>"></span>
                             <?php endif ?>
                         <?php endforeach; ?>
                     <?php endforeach; ?>
@@ -96,17 +96,4 @@
     </div>
 <?php $this->start('script'); ?>
 <?php echo $this->Html->script('views/usuarioAvaliacoes/mediaAvaliador.js'); ?>
-<!--<script>
-    $(function(){
-        $.each($('.resposta_avaliador'), function(i,o){
-            $(o).val(aleatorio(1,4));
-        });
-    });
-    function aleatorio(inferior,superior){
-        numPossibilidades = superior - inferior
-        aleat = Math.random() * numPossibilidades
-        aleat = Math.floor(aleat)
-        return parseInt(inferior) + aleat;
-    }
-</script>-->
 <?php $this->end(); ?>

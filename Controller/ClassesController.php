@@ -46,7 +46,7 @@ class ClassesController extends AppController {
         }
         $classes = $this->Classe->find('first', array('conditions' => array('Classe.' . $this->Classe->primaryKey => $id)));
         $this->set('classes', $classes);
-        Debugger::dump($classes);
+        /*Debugger::dump($classes);*/
         $this->set('modal_title', __('CLASSE - ') .'<b>'.$classes['Classe']['nome'].'</b>');
         $this->layout = 'modal';
     }
@@ -62,6 +62,7 @@ class ClassesController extends AppController {
             $classes = $this->Classe->find('first', array(
                 'fields' => 'MAX(Classe.sort) AS "Classe__sort"',
                 'recursive'=>-1,
+                /*'conditions' => array('Classe.grupo_id' => $this->request->data['Pergunta']['grupo_id'])*/
             ));
             if ($classes != null) {
                 $this->request->data['Classe']['sort'] = $classes['Classe']['sort'] + 1;
@@ -69,6 +70,7 @@ class ClassesController extends AppController {
                 $this->request->data['Classe']['sort'] = 1;
             }
             $this->request->data['Classe']['nome'] = $this->convertem($this->request->data['Classe']['nome']);
+            Debugger::dump($classes);
             if ($this->Classe->save($this->request->data)) {
                 $this->Session->setFlash(__('Classe adicionada com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
                 return $this->redirect(array('action' => 'index'));

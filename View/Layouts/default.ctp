@@ -45,9 +45,10 @@ echo $this->Html->script('jquery.mask');
 echo $this->Html->script('jquery.mask.min');
 echo $this->Html->script('_main');
 echo $this->Html->script('oculta_mensagens_de_erro');
+echo $this->Html->script('chart');
 echo $this->fetch('script');
 ?>
-<?php echo $this->element('sql_dump'); ?>
+<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
 

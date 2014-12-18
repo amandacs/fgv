@@ -44,6 +44,7 @@
         </div>
     </div>
 </div>
+</div>
 <?php $this->start('script'); ?>
 <?php echo $this->Html->script('default'); ?>
 <?php $this->end(); ?>

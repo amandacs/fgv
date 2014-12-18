@@ -89,8 +89,8 @@ class UsuarioAvaliacoesController extends AppController {
             ),
             'conditions'=>array(
                 'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)' ,
-                'Usuario.funcao_id = Grupo.funcao_id')
-               // 'Usuario.classe_id = ANY(Pergunta.classe_array)',
+                    'Usuario.funcao_id = Grupo.funcao_id')
+                // 'Usuario.classe_id = ANY(Pergunta.classe_array)',
                 //'Usuario.funcao_id = Pergunta.funcao_id'
             )
         ));

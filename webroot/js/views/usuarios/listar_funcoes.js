@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 function popularListaDeFuncoes(funcoes, idFuncao) {
-    var options = '<option value>Selecione a funcão do usuário...</option>';
+    var options = '<option value>Selecione a funcão do usuário</option>';
     if(funcoes != null) {
         $.each(funcoes, function(index, funcao){
             if(idFuncao == index)

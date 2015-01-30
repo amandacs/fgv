@@ -23,47 +23,47 @@ class UsuariosController extends AppController {
      *
      * @return void
      */
-    public function index($org_id = null) {
+    public function index($org_id = null)
+    {
         /*$this->passedArgs['param'] = '';
         $this->Session->write('search', false);*/
         $org_nome = null;
         $perfil = $this->Session->read('Auth.User.perfil_id');
         $this->loadModel('Organizacao');
-        $org =$this->Session->read('Auth.User.organizacao_id');
+        $org = $this->Session->read('Auth.User.organizacao_id');
         $this->Organizacao->displayField("id");
-        $orgs = $this->Organizacao->find('list',array('fields'=>'Organizacao.id','conditions'=>array('Organizacao.parent_id'=>$org),'recursive'=>-1));
-        if($perfil==1){
+        $orgs = $this->Organizacao->find('list', array('fields' => 'Organizacao.id', 'conditions' => array('Organizacao.parent_id' => $org), 'recursive' => -1));
+        if ($perfil == 1) {
             $conditions = array();
-        }else{
-            if($org_id == null){
+        } else {
+            if ($org_id == null) {
                 //TODO O AVALIADOR VISUALIZA APENAS OS AVALIADOS RELACIONADOS A ELE
-                $conditions = array('OR'=>array(array('Usuario.organizacao_id'=> $orgs, 'Usuario.perfil_id'=>2),array('Usuario.organizacao_id'=> $org, 'Usuario.perfil_id'=>3)), );
-            }
-            else{
-                $conditions = array('Usuario.organizacao_id'=> $org_id);
-                $org_nome = $this->Organizacao->find('first',array('fields'=>'Organizacao.nome','conditions'=>array('Organizacao.id'=>$org_id),'recursive'=>-1));
+                $conditions = array('OR' => array(array('Usuario.organizacao_id' => $orgs, 'Usuario.perfil_id' => 2), array('Usuario.organizacao_id' => $org, 'Usuario.perfil_id' => 3)),);
+            } else {
+                $conditions = array('Usuario.organizacao_id' => $org_id);
+                $org_nome = $this->Organizacao->find('first', array('fields' => 'Organizacao.nome', 'conditions' => array('Organizacao.id' => $org_id), 'recursive' => -1));
 
             }
         }
-        $order = array('Usuario.matricula'=>'ASC');
-        if(isset($_GET['q'])){
-            if(is_numeric($_GET['q'])){
+        $order = array('Usuario.matricula' => 'ASC');
+        if (isset($_GET['q'])) {
+            if (is_numeric($_GET['q'])) {
                 $conditions = array(
-                    "Usuario.matricula like '%" . $_GET['q']. "%'"
+                    "Usuario.matricula like '%" . $_GET['q'] . "%'"
                 );
             } else {
                 $conditions = array(
-                    "Usuario.nome ilike '%" . $_GET['q']. "%'"
+                    "Usuario.nome ilike '%" . $_GET['q'] . "%'"
                 );
             }
         }
 
         $this->paginate = array(
-            'limit'=>10,
-            'recursive'=>0,
-            'fields'=> array('Usuario.*','Cargo.*', 'UsuarioAvaliacao.*'),
-            'conditions'=>$conditions,
-            'order'=>$order,
+            'limit' => 10,
+            'recursive' => 0,
+            'fields' => array('Usuario.*', 'Cargo.*', 'UsuarioAvaliacao.*'),
+            'conditions' => $conditions,
+            'order' => $order,
             'joins' => array(
                 array(
                     'table' => 'usuario_avaliacoes',
@@ -76,19 +76,16 @@ class UsuariosController extends AppController {
             )
         );
         $usuarioAvaliacoes = $this->Usuario->UsuarioAvaliacao->find('all', array(
-            /*'conditions' => array(
-                'UsuarioAvaliacao.avaliado_id' => $id
-            ),*/
             'recursive' => -1
         ));
-        $usuarios= $this->paginate();
-        if($usuarios == null){
-            $this->Session->setFlash(__('Nenhum resultado encontrado para sua pesquisa!.'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
+        $usuarios = $this->paginate();
+        if ($usuarios == null) {
+            $this->Session->setFlash(__('Nenhum resultado encontrado para sua pesquisa!.'), 'alert', array('class' => 'alert-danger', 'escape' => false));
             $this->redirect(array('action' => 'index'));
         }
 
-        $this->set('testes',$this->Organizacao->find('all'));
-        $this->set('organizacoes', $this->Organizacao->find('all', array('fields' => array('id', 'nome', 'acronimo'),'recursive' => -1)));
+        $this->set('testes', $this->Organizacao->find('all'));
+        $this->set('organizacoes', $this->Organizacao->find('all', array('fields' => array('id', 'nome', 'acronimo'), 'recursive' => -1)));
         $this->set('perfil', $perfil);
         $this->set('org_nome', $org_nome);
         $this->set('usuarioAvaliacoes', $usuarioAvaliacoes);
@@ -97,34 +94,6 @@ class UsuariosController extends AppController {
         $this->render('index');
         $this->set('title_for_layout', 'Usuários');
     }
-
-    /*public function search() {
-        if (isset($this->passedArgs['param'])) {
-            $conditions = array(
-                'OR' => array(
-                    "UPPER(TRANSLATE(CAST(Usuario.nome AS TEXT), 'áÁàÀãÃâÂâäÄéÉêÊËëÈèíÍïÏÌìóÓôÔõÕöÖòÒúÚÙùúûüÜÛ', 'AAAAAAAAAAAEEEEEEEEIIIIIIOOOOOOOOOOUUUUUUUUU')) = ? " => strtoupper($this->removeAcentos($this->passedArgs['param'])),
-                    "UPPER(TRANSLATE(CAST(Usuario.nome AS TEXT), 'áÁàÀãÃâÂâäÄéÉêÊËëÈèíÍïÏÌìóÓôÔõÕöÖòÒúÚÙùúûüÜÛ', 'AAAAAAAAAAAEEEEEEEEIIIIIIOOOOOOOOOOUUUUUUUUU')) LIKE " =>
-                        '%' . strtoupper($this->removeAcentos($this->passedArgs['param'])) . '%',
-                    'Usuario.matricula' => $this->passedArgs['param']
-                )
-            );
-            $this->paginate = array(
-                'conditions' => $conditions,
-                'limit' => 20,
-                'order' => array(
-                    'Usuario.nome' => 'ASC'
-                )
-            );
-        }
-        $this->set('usuarios', $this->paginate('Usuario'));
-        $this->render('index');
-    }
-
-    public function pesquisar() {
-        $url['action'] = 'search';
-
-        $this->redirect($url, null, true);
-    }*/
     public function teste(){}
     /**
      * view method
@@ -263,7 +232,6 @@ class UsuariosController extends AppController {
      * @return void
      */
     public function edit($id = null) {
-        $date = date('Y-m-d H:i:s');
         if (!$this->Usuario->exists($id)) {
             throw new NotFoundException(__('Usuário inválido.'));
         }
@@ -274,22 +242,22 @@ class UsuariosController extends AppController {
             'recursive'=>-1,
         ));
         if ($this->request->is(array('post', 'put'))) {
-
-            $this->request->data['Usuario']['data_atualizacao'] = $date;
             if ($this->Usuario->save($this->request->data)) {
                 $this->Session->setFlash(__('Usuário alterado com sucesso!'), 'alert', array('class'=>'alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('O usuário não pôde ser salvo. Por favor, tente novamente.'), 'alert', array('class' => 'alert-danger'));
+                $this->Session->setFlash(__('O usuário não pôde ser alterado. Por favor, tente novamente.'), 'alert', array('class' => 'alert-danger'));
             }
 
         }
         $this->request->data = $usuario;
         $organizacoes = $this->Usuario->Organizacao->getChildOrganization(2);
         $cargos = $this->Usuario->Cargo->find('list');
-        $classes = $this->Usuario->Classe->find('first', array('conditions' => array('Classe.cargo_id'=>0)));
+        $classes = $this->Usuario->Classe->find('list', array('conditions' => array('Classe.cargo_id'=>$usuario['Usuario']['cargo_id']),
+            'order' => array('Classe.id'=>'ASC')));
         $perfils = $this->Usuario->Perfil->find('list');
-        $funcoes = $this->Usuario->Funcao->find('first', array('conditions' => array('Funcao.cargo_id'=>0)));
+        $funcoes = $this->Usuario->Funcao->find('list', array('conditions' => array('Funcao.cargo_id'=>$usuario['Usuario']['cargo_id']),
+            'order' => array('Funcao.id'=>'ASC')));
         $this->set(compact('organizacoes', 'cargos', 'perfils', 'funcoes', 'classes', 'usuario'));
         $this->set('title_for_layout', 'Usuários');
     }
@@ -302,7 +270,6 @@ class UsuariosController extends AppController {
      * @return void
      */
     public function meusDados($id = null) {
-        $date = date('Y-m-d H:i:s');
         if (!$this->Usuario->exists($id)) {
             throw new NotFoundException(__('Usuário inválido'));
         }
@@ -321,7 +288,6 @@ class UsuariosController extends AppController {
                 $this->Session->setFlash(('Senha atual incorreta! Por favor, tente novamente! '), 'alert', array('class'=>'alert-danger', 'escape'=>false));
             }else{
                 $this->request->data['Usuario']['password'] = $new_password;
-                $this->request->data['Usuario']['data_atualizacao'] = $date;
                 if ($this->Usuario->save($this->request->data)) {
                     $this->Session->setFlash(__('Usuário alterado com sucesso!'), 'alert', array('class'=>'alert-success'));
                     return $this->redirect(array('action' => 'login'));
@@ -380,7 +346,6 @@ class UsuariosController extends AppController {
             $user = $this->Usuario->find('first', array(
                     'fields' => array(
                         'Usuario.*',
-                        //'Role.*',
                         'Organizacao.*'
                     ),
                     'conditions' => array(
@@ -395,7 +360,6 @@ class UsuariosController extends AppController {
                     'id' => $user['Usuario']['id']
                 );
                 if($this->Usuario->save($login)){
-                    // $user['Usuario']['Role'] = $user['Role'];
                     $user['Usuario']['Organizacao'] = $user['Organizacao'];
                     $this->Auth->login($user['Usuario']);
                     if($user['Usuario']['perfil_id']<=2)
@@ -412,47 +376,66 @@ class UsuariosController extends AppController {
         }
         $this->layout = 'login';
     }
-   /* public  function login(){
-        if ($this->request->is('post')) {
-            $user = $this->Usuario->find('first', array(
-                    'fields' => array(
-                        'Usuario.*',
-                        //'Role.*',
-                        'Organizacao.*'
-                    ),
-                    'conditions' => array(
-                        'Usuario.username' => $this->data['Usuario']['username'],
-                        'Usuario.password' => Security::hash($this->data['Usuario']['password'], 'md5', false),
-                    )
-                )
-            );
-            if($user != false){
-                unset($user['Usuario']['password']);
-                $login = array(
-                    'id' => $user['Usuario']['id']
-                );
-                if($this->Usuario->save($login)){
-                    // $user['Usuario']['Role'] = $user['Role'];
-                    $user['Usuario']['Organizacao'] = $user['Organizacao'];
-                    $this->Auth->login($user['Usuario']);
-                    if($user['Usuario']['perfil_id']==1)
-                    {
-                        $this->redirect($this->Auth->redirectUrl(array('action'=>'index')));
-                    }
-                    else{
-                        $this->redirect($this->Auth->redirectUrl(array('action'=>'view',$user['Usuario']['id'])));
-                    }
-                }
-            }else{
-                $this->Session->setFlash(__('Usuário e/ou senha inválidos.'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
-            }
-        }
-        $this->layout = 'login';
-    }*/
-
 
     public function logout(){
         $this->Session->delete('Usuario');
         $this->redirect($this->Auth->logout());
+    }
+
+    public function ficha($id = null){
+        if (!$this->Usuario->exists($id)) {
+            throw new NotFoundException(__('Invalid usuario'));
+        }
+        $options = array(
+            'conditions' => array(
+                'Usuario.' . $this->Usuario->primaryKey => $id
+            ),
+        );
+        $usuario = $this->Usuario->find('first', $options);
+        $this->Usuario->UsuarioAvaliacao->Avaliacao->unBindModel(array('hasMany'=>array('Pergunta', 'UsuarioResposta')));
+        $avaliacao = $this->Usuario->UsuarioAvaliacao->Avaliacao->find('first', array(
+            'fields'=>array('Avaliacao.*'),
+        ));
+        $this->loadModel('UsuarioAvaliacao');
+        $ava =  $this->UsuarioAvaliacao->find ('first', array(
+            'conditions' => array(
+                'UsuarioAvaliacao.avaliado_id' => $id,
+            )));
+        $usuarioAvaliacoes = $this->Usuario->UsuarioAvaliacao->find('all', array(
+            'conditions' => array(
+                'UsuarioAvaliacao.avaliado_id' => $id
+            ),
+            'recursive' => -1
+        ));
+        $perguntas = $this->UsuarioAvaliacao->UsuarioResposta->Pergunta->find('all', array(
+            'order'=>array(
+                'Grupo.ordem' => 'ASC',
+                'Pergunta.ordem' => 'ASC',
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'usuarios',
+                    'alias' => 'Usuario',
+                    'type' => 'LEFT',
+                    'conditions' => array(
+                        'Usuario.id' => $id,
+                    ),
+                    'fields' => 'id',
+                )
+            ),
+            'conditions'=>array(
+                'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)' ,
+                    'Usuario.funcao_id = Grupo.funcao_id')
+            )
+        ));
+        $this->loadModel('Grupo');
+        $this->loadModel('Organizacao');
+        $gruponome = $this->Grupo->find('all',array('recursive'=> -1, 'fields' => array('Grupo.id', 'Grupo.nome', 'Grupo.ordem', 'Grupo.observacao','Grupo.competencia_id')));
+        $orgs = $this->Organizacao->find('all',array('recursive'=> -1, 'fields' => array('Organizacao.id', 'Organizacao.nome','Organizacao.secretaria_id')));
+        $this->set('ava',$ava);
+        $this->set(compact('avaliacao', 'usuarioAvaliacoes', 'usuario', 'perguntas','gruponome','orgs'));
+        $this->set('title_for_layout', 'Usuário');
+        $this->set('perfil_id', $usuario['Usuario']['perfil_id']);
+        $this->layout = "ficha";
     }
 }

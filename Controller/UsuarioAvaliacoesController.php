@@ -51,7 +51,7 @@ class UsuarioAvaliacoesController extends AppController {
      *
      * @return void
      */
-    public function add($usuario_id, $avaliacao_id, $funcao_avaliado_id, $classe_avaliado_id) {
+    public function add($usuario_id, $avaliacao_id, $funcao_avaliado_id, $classe_avaliado_id, $cargo_avaliado_id) {
         $this->loadModel('Grupo');
         $gruponome = $this->Grupo->find('list',array( 'fields' => array('Grupo.id', 'Grupo.nome')));
         $date = date('d-m-Y H:i:s');
@@ -62,6 +62,7 @@ class UsuarioAvaliacoesController extends AppController {
             $this->request->data['UsuarioAvaliacao']['avaliado_id'] = $usuario_id;
             $this->request->data['UsuarioAvaliacao']['funcao_avaliado_id'] = $funcao_avaliado_id;
             $this->request->data['UsuarioAvaliacao']['classe_avaliado_id'] = $classe_avaliado_id;
+            $this->request->data['UsuarioAvaliacao']['cargo_avaliado_id'] = $cargo_avaliado_id;
             $this->UsuarioAvaliacao->set( $this->data); // Seta os campos do form
             if ($this->UsuarioAvaliacao->saveAll($this->request->data)) {
                 $this->Session->setFlash(('A avaliação foi adicionada com sucesso!'), 'alert', array('class' => 'alert-success'));
@@ -88,10 +89,8 @@ class UsuarioAvaliacoesController extends AppController {
                 )
             ),
             'conditions'=>array(
-                'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)' ,
+                'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)',
                     'Usuario.funcao_id = Grupo.funcao_id')
-                // 'Usuario.classe_id = ANY(Pergunta.classe_array)',
-                //'Usuario.funcao_id = Pergunta.funcao_id'
             )
         ));
         $this->set(compact('gruponome', 'perguntas', 'usuarios'));
@@ -116,6 +115,7 @@ class UsuarioAvaliacoesController extends AppController {
             $date = date('d-m-Y H:i:s');
             $this->request->data['UsuarioAvaliacao']['data_avaliador'] = $date;
             $this->request->data['UsuarioAvaliacao']['avaliador_id'] = $this->Session->read('Auth.User.id');
+            $this->request->data['UsuarioAvaliacao']['cargo_avaliador_id'] = $this->Session->read('Auth.User.cargo_id');
             if ($this->UsuarioAvaliacao->saveAll($this->request->data)) {
                 $this->Session->setFlash(('A avaliação foi adicionada com sucesso!'), 'alert', array('class' => 'alert-success'));
                 return $this->redirect(array('controller' => 'usuarios', 'action' => 'index'));
@@ -143,7 +143,8 @@ class UsuarioAvaliacoesController extends AppController {
                 )
             ),
             'conditions'=>array(
-                'Usuario.classe_id = ANY(Pergunta.classe_array)',
+                'OR'=>array('Usuario.classe_id = ANY(Grupo.classe_array)',
+                    'Usuario.funcao_id = Grupo.funcao_id')
             )
         ));
         $this->set(compact('gruponome'));

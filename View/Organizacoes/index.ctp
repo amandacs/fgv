@@ -2,27 +2,17 @@
     <fieldset>
         <legend>Organizações</legend>
 
-        <div class="row">
-            <div class="col-sm-8">
-                <?php echo $this->Form->create('Organizacao',array('action'=>'index', 'class'=>'form-horizontal', 'inputDefaults'=>array('label'=>false, 'div'=>false)));?>
-              <!--  <div class="input-group">
-                    <?php /*echo $this->Form->select('orgao_id', $orgaos,
-                        array('class'=>'form-control', 'required' => 'required')
-                    );*/?>
-                    <span class="input-group-btn">
-                        <?php /*echo $this->Form->button('Filtrar',
-                            array('type'=>'submit', 'class'=>'btn btn-default loader')
-                        );*/?>
-                    </span>
-                </div>--><!-- /input-group -->
-                <?php echo $this->Form->end();?>
-            </div>
-            <div class="col-sm-4">
-                <?php echo $this->Html->link('<i class="fa fa-plus"></i> Nova Organização',
-                    array('action' => 'add', 1),
-                    array('class'=>'btn btn-default','escape'=>false)
-                );?>
-            </div>
+        <!--<div class="col-sm-8">
+            <?php /*echo $this->Form->create('Organizacao',array('action'=>'index', 'class'=>'form-horizontal', 'inputDefaults'=>array('label'=>false, 'div'=>false)));*/?>
+            <?php /*echo $this->Form->end();*/?>
+        </div>-->
+        <div class="col-sm-4" style="float: left">
+            <?php echo $this->Form->create('Organizacao',array('action'=>'index', 'class'=>'form-horizontal', 'inputDefaults'=>array('label'=>false, 'div'=>false)));?>
+            <?php echo $this->Form->end();?>
+            <?php echo $this->Html->link('<i class="fa fa-plus"></i> Nova Organização',
+                array('action' => 'add', 1),
+                array('class'=>'btn btn-default', 'style'=>'margin-bottom: 15px;','escape'=>false)
+            );?>
         </div>
         <div style="margin-top: 20px">
             <div id="breadCrumbHolder" class="breadCrumbHolder module col-sm-12" style="margin-left: 5px">

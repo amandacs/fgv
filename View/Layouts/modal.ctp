@@ -6,8 +6,6 @@
     <?php echo $this->fetch('content');?>
 </div>
 <?php
-
-echo $this->Html->script('_main');
+echo $this->Html->script('default');
 echo $this->fetch('script');
 ?>
-<?php /*echo $this->element('sql_dump'); */?>

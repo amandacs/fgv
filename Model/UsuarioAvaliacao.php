@@ -61,6 +61,13 @@ class UsuarioAvaliacao extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+        'CargoAvaliado' => array(
+            'className' => 'Cargo',
+            'foreignKey' => 'cargo_avaliado_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
 		'Avaliador' => array(
 			'className' => 'Usuario',
 			'foreignKey' => 'avaliador_id',
@@ -68,6 +75,13 @@ class UsuarioAvaliacao extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+        'CargoAvaliador' => array(
+            'className' => 'Cargo',
+            'foreignKey' => 'cargo_avaliador_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
         'FuncaoAvaliado' => array(
             'className' => 'Funcao',
             'foreignKey' => 'funcao_avaliado_id',
@@ -83,12 +97,12 @@ class UsuarioAvaliacao extends AppModel {
             'order' => ''
         ),
 		'Avaliacao' => array(
-			'className' => 'Avaliacao',
-			'foreignKey' => 'avaliacao_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
+            'className' => 'Avaliacao',
+            'foreignKey' => 'avaliacao_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
 	);
 
 /**

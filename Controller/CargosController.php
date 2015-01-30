@@ -58,7 +58,6 @@ class CargosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Cargo->create();
-            $this->request->data['Cargo']['nome'] = $this->convertem($this->request->data['Cargo']['nome']);
 			if ($this->Cargo->save($this->request->data)) {
 				$this->Session->setFlash(__('Cargo adicionado com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
 				return $this->redirect(array('action' => 'index'));
@@ -80,7 +79,6 @@ class CargosController extends AppController {
 			throw new NotFoundException(__('Cargo inválido.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-            $this->request->data['Cargo']['nome'] = $this->convertem($this->request->data['Cargo']['nome']);
 			if ($this->Cargo->save($this->request->data)) {
 				$this->Session->setFlash(__('Cargo alterado com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
 				return $this->redirect(array('action' => 'index'));

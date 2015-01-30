@@ -1,8 +1,6 @@
-<div class="col-md-8" xmlns="http://www.w3.org/1999/html" style="width: 95%">
-
+<div class="col-md-8" xmlns="http://www.w3.org/1999/html" style="width: 100%">
     <div class="form usuarios_add">
-        <?php
-        echo $this->Form->create('Usuario', array(
+        <?php echo $this->Form->create('Usuario', array(
             'inputDefaults' => array(
                 'label' => false,
                 'div' => false
@@ -11,8 +9,7 @@
         ?>
         <fieldset>
             <?php echo $this->Session->flash(); ?>
-                <legend>Adicionar Usuário</legend>
-            <?php /*endif; */?>
+            <legend>Adicionar Usuário</legend>
             <div class="form-group">
                 <label class="required">Nome:</label>
                 <?php echo $this->Form->input('nome', array('type' => 'text', 'class' => 'form-control uppercase max', 'required' => true, 'autofocus')); ?>
@@ -38,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label class="required">Login:</label>
-                <?php echo $this->Form->input('username', array('id' => 'username', 'class' => 'form-control erro min', 'required' => true)); ?>
+                <?php echo $this->Form->input('username', array('id' => 'username', 'maxLength'=>18, 'class' => 'form-control erro lowercase min', 'required' => true)); ?>
             </div>
             <div class="form-group">
                 <label class="required">Senha:</label>
@@ -66,12 +63,12 @@
             </div>
             <div class="form-group">
                 <label class="required">Função:</label>
-                <?php echo $this->Form->input('funcao_id', array('type' => 'select', 'id' => 'funcoes', 'class' => 'form-control med', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário...')); ?>
+                <?php echo $this->Form->input('funcao_id', array('type' => 'select', 'id' => 'funcoes', 'class' => 'form-control max', 'required' => true, 'empty'=>'Selecione primeiro o cargo do usuário...')); ?>
             </div>
         </fieldset>
         <p class="pull-left">
-        <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
-        <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
+            <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('class' => 'btn btn-danger')); ?>
         </p>
         <?php echo $this->Form->end(); ?>
     </div>
@@ -79,5 +76,4 @@
 <?php $this->start('script'); ?>
 <?php echo $this->Html->script('views/usuarios/listar_classes.js'); ?>
 <?php echo $this->Html->script('views/usuarios/listar_funcoes.js'); ?>
-<?php echo $this->Html->script('default'); ?>
 <?php $this->end(); ?>

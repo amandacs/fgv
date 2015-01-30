@@ -4,10 +4,6 @@
         <div class="btn-group">
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-refresh"></i>', array('action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Classe', array('action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
-            <?php echo $this->Html->link('<i class="glyphicon glyphicon-th-list"></i> Listar Cargos', array('controller' => 'cargos', 'action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
-            <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Cargo', array('controller' => 'cargos','action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); */?><!--
-            <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-th-list"></i> Listar Indicadores', array('controller' => 'indicares', 'action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); */?>
-            --><?php /*echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Indicador', array('controller' => 'perguntas','action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); */?>
 
 
         </div>

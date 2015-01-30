@@ -27,14 +27,11 @@ class PerguntasController extends AppController {
                 'Pergunta.ordem' => 'ASC',
             ),
             'limit'=>500,
-            'conditions'=> array(
-                'Grupo.ordem >= 16'
-            ),
         );
         $this->Paginator->settings = $this->paginate;
         $this->set('perguntas', $this->Paginator->paginate('Pergunta'));
         $this->set('title_for_layout', 'Indicadores');
-	}
+    }
 
     /**
      * view method
@@ -51,13 +48,13 @@ class PerguntasController extends AppController {
         $this->set('pergunta', $perguntas);
         $this->set('modal_title', __('INDICADOR - ') . ' <b>'.$perguntas['Pergunta']['id'].'</b>');
         $this->layout = 'modal';
-	}
+    }
 
-/**
- * add method
- *
- * @return void
- */
+    /**
+     * add method
+     *
+     * @return void
+     */
     public function add() {
         $this->loadModel('Classe');
         $classes = $this->Classe->find('list',array('order' => array('Classe.id'=>'ASC'), 'fields' => array('Classe.id', 'Classe.nome')));
@@ -65,9 +62,6 @@ class PerguntasController extends AppController {
         $funcoes = $this->Funcao->find('list',array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
         if ($this->request->is('post')) {
             $this->Pergunta->create();
-            /*if ($this->request->data['Pergunta']['html_sugestion'] == '') {
-                $this->request->data['Pergunta']['html_sugestion'] = null;
-            }*/
             $perguntas = $this->Pergunta->find('first', array(
                 'fields' => 'MAX(Pergunta.ordem) AS "Pergunta__ordem"',
                 'conditions' => array('Pergunta.grupo_id' => $this->request->data['Pergunta']['grupo_id'])
@@ -89,30 +83,23 @@ class PerguntasController extends AppController {
             )
         );
         $grupos = $this->Pergunta->Grupo->find('list', array(
-                'order' => array('Grupo.ordem'=>'ASC'),
-                'conditions' => array('Grupo.ordem >= 1'),
+            'order' => array('Grupo.ordem'=>'ASC'),
         ));
         $this->set(compact('grupos', 'avaliacoes', 'classes', 'funcoes'));
         $this->set('title_for_layout', 'Indicadores');
     }
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+    /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
     public function edit($id = null) {
-        $this->loadModel('Classe');
-        $this->loadModel('Funcao');
-
         if (!$this->Pergunta->exists($id)) {
             throw new NotFoundException(__('Indicador inválido.'));
         }
-
-        $classes = $this->Classe->find('list' ,array('order' => array('Classe.id'=>'ASC'), 'fields' => array('Classe.id', 'Classe.nome')));
-        $funcoes = $this->Funcao->find('list' ,array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
 
         if ($this->request->is('post') || $this->request->is('put')) {
 
@@ -132,25 +119,24 @@ class PerguntasController extends AppController {
         $this->set(compact('grupos', 'avaliacoes', 'classes', 'funcoes'));
         $this->set('title_for_layout', 'Indicadores');
     }
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Pergunta->id = $id;
-		if (!$this->Pergunta->exists()) {
-			throw new NotFoundException(__('Indicador inválido.'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Pergunta->delete()) {
-			$this->Session->setFlash(__('O Indicador foi excluído com sucesso!'), 'alert', array('class' => 'alert-success'));
-		} else {
-			$this->Session->setFlash(__('O Indicador não pôde ser excluído. Por favor, tente novamente.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
+    /**
+     * delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function delete($id = null) {
+        $this->Pergunta->id = $id;
+        if (!$this->Pergunta->exists()) {
+            throw new NotFoundException(__('Indicador inválido.'));
+        }
+        $this->request->onlyAllow('post', 'delete');
+        if ($this->Pergunta->delete()) {
+            $this->Session->setFlash(__('O Indicador foi excluído com sucesso!'), 'alert', array('class' => 'alert-success'));
+        } else {
+            $this->Session->setFlash(__('O Indicador não pôde ser excluído. Por favor, tente novamente.'));
+        }
+        return $this->redirect(array('action' => 'index'));
+    }
 }

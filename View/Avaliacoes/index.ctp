@@ -4,10 +4,6 @@
         <div class="btn-group">
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-refresh"></i>', array('action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Avaliação', array('action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
-            <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-th-list"></i> Listar Classes', array('controller' => 'classes', 'action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); */?><!--
-            --><?php /*echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Classe', array('controller' => 'classes','action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); */?>
-
-
         </div>
     </div>
 

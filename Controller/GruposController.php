@@ -50,10 +50,6 @@ class GruposController extends AppController {
         }
         $grupos = $this->Grupo->find('first', array('conditions' => array('Grupo.' . $this->Grupo->primaryKey => $id)));
         $this->set('grupos', $grupos);
-        /*Debugger::dump($grupos);
-        $perguntas = $this->Grupo->Pergunta->find('all', array('order' => array('Pergunta.ordem'=>'ASC'),
-            'conditions' => array('Pergunta.grupo_id' => $id)));
-        $this->set(compact('perguntas', 'grupos'));*/
         $this->set('modal_title', __('Grupo - ') . ' <b>'.$grupos['Grupo']['nome'].'</b>');
         $this->layout = 'modal';
     }
@@ -65,28 +61,32 @@ class GruposController extends AppController {
      */
     public function add() {
         $this->loadModel('Classe');
-        $classes = $this->Classe->find('list',array('order' => array('Classe.id'=>'ASC'), 'fields' => array('Classe.id', 'Classe.nome')));
+        $classes = $this->Classe->find('list',array('order' => array('Classe.id'=>'ASC'),
+            'conditions' => array('Classe.parent_id !=' => null),
+            'fields' => array('Classe.id', 'Classe.nome')));
         $this->loadModel('Funcao');
         $funcoes = $this->Funcao->find('list',array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
+
         if ($this->request->is('post')) {
             $this->Grupo->create();
             $grupos = $this->Grupo->find('first', array(
                 'recursive'=>-1,
-                'fields' => 'MAX(Grupo.ordem) AS "Grupo__ordem"',
-                /*'conditions' => array('Grupo.competencia_id' => $this->request->data['Grupo']['competencia_id'])*/
+                'conditions'=>array(
+                    'Grupo.competencia_id =' => $this->request->data['Grupo']['competencia_id'],
+                ),
+                'fields' => 'COUNT(Grupo.id) AS "Grupo__count"',
             ));
-            Debugger::dump($grupos);
-            if ($grupos != null) {
-                $this->request->data['Grupo']['ordem'] = $grupos['Grupo']['ordem'] + 1;
+            if ($this->request->data['Grupo']['competencia_id'] != null) {
+                $this->request->data['Grupo']['ordem'] = $grupos['Grupo']['count'] + 1;
             } else {
                 $this->request->data['Grupo']['ordem'] = 1;
             }
             $this->request->data['Grupo']['classe_array'] = $this->arrayToDB(@$this->request->data['Grupo']['classe_array']);
             if($this->request->data['Grupo']['nova_competencia']==1){
-                $this->request->data['Grupo']['nome'] = $this->convertem($this->request->data['Grupo']['nome']);
                 $this->request->data['Grupo']['competencia_id'] = null;
                 $this->request->data['Grupo']['classe_array'] = null;
                 $this->request->data['Grupo']['funcao_id'] = null;
+                $this->request->data['Grupo']['ordem'] = null;
                 if ($this->Grupo->save($this->request->data)){
                     $this->Session->setFlash(('O grupo foi adicionado com sucesso!'), 'alert', array('class'=>'alert-success'));
                     return $this->redirect(array('action' => 'index'));
@@ -97,7 +97,6 @@ class GruposController extends AppController {
                 if(($this->request->data['Grupo']['nova_competencia']==0 && $this->request->data['Grupo']['competencia_id']==null)||($this->request->data['Grupo']['classe_array'] == null && $this->request->data['Grupo']['funcao_id'] == null)){
                     $this->Session->setFlash(__('O grupo não pôde ser salvo. Selecione uma competência e uma classe ou função existente ou defina este grupo como uma nova competência.'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
                 }else{
-                    $this->request->data['Grupo']['nome'] = $this->convertem($this->request->data['Grupo']['nome']);
                     if ($this->Grupo->save($this->request->data)){
                         $this->Session->setFlash(('O grupo foi adicionado com sucesso!'), 'alert', array('class'=>'alert-success'));
                         return $this->redirect(array('action' => 'index'));
@@ -112,7 +111,6 @@ class GruposController extends AppController {
             )
         );
         $this->set(compact('competencias', 'grupos', 'classes', 'funcoes'));
-
     }
 
     /**
@@ -124,20 +122,24 @@ class GruposController extends AppController {
      */
     public function edit($id = null) {
         $this->loadModel('Classe');
+        $classes = $this->Classe->find('list',array('order' => array('Classe.id'=>'ASC'),
+            'conditions' => array('Classe.parent_id !=' => null),
+            'fields' => array('Classe.id', 'Classe.nome')));
         $this->loadModel('Funcao');
+        $funcoes = $this->Funcao->find('list' ,array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
 
         if (!$this->Grupo->exists($id)) {
             throw new NotFoundException(__('Grupo inválido.'));
         }
-        $classes = $this->Classe->find('list' ,array('order' => array('Classe.id'=>'ASC'), 'fields' => array('Classe.id', 'Classe.nome')));
-        $funcoes = $this->Funcao->find('list' ,array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
+        //$classes = $this->Classe->find('list' ,array('order' => array('Classe.id'=>'ASC'), 'fields' => array('Classe.id', 'Classe.nome')));
+        //$funcoes = $this->Funcao->find('list' ,array('order' => array('Funcao.id'=>'ASC'), 'fields' => array('Funcao.id', 'Funcao.nome')));
         if ($this->request->is(array('post', 'put'))) {
             $this->request->data['Grupo']['classe_array'] = $this->arrayToDB(@$this->request->data['Grupo']['classe_array']);
             if($this->request->data['Grupo']['nova_competencia']==1){
-                $this->request->data['Grupo']['nome'] = $this->convertem($this->request->data['Grupo']['nome']);
                 $this->request->data['Grupo']['competencia_id'] = null;
                 $this->request->data['Grupo']['classe_array'] = null;
                 $this->request->data['Grupo']['funcao_id'] = null;
+                $this->request->data['Grupo']['ordem'] = null;
                 if ($this->Grupo->save($this->request->data)){
                     $this->Session->setFlash(('O grupo foi adicionado com sucesso!'), 'alert', array('class'=>'alert-success'));
                     return $this->redirect(array('action' => 'index'));
@@ -148,7 +150,6 @@ class GruposController extends AppController {
                 if(($this->request->data['Grupo']['nova_competencia']==0 && $this->request->data['Grupo']['competencia_id']==null)||($this->request->data['Grupo']['classe_array'] == null && $this->request->data['Grupo']['funcao_id'] == null)){
                     $this->Session->setFlash(__('O grupo não pôde ser alterado. Selecione uma competência e uma classe ou função existente ou defina este grupo como uma nova competência..'), 'alert', array('class'=>'alert-danger', 'escape'=>false));
                 }else{
-                    $this->request->data['Grupo']['nome'] = $this->convertem($this->request->data['Grupo']['nome']);
                     if ($this->Grupo->save($this->request->data)) {
                         $this->Session->setFlash(('Grupo alterado com sucesso!'), 'alert', array('class'=>'alert-success', 'escape'=>false));
                         return $this->redirect(array('action' => 'index'));

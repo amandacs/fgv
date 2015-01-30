@@ -62,7 +62,7 @@
                                     <td>
                                         <?php echo h($usuario['Cargo']['nome']); ?>&nbsp;
                                     </td>
-                                    <td>
+                                    <td style="text-align: center">
                                         <?php if(isset($usuario['UsuarioAvaliacao']['id'])): ?>
                                             <i class="glyphicon glyphicon-ok" style="color: green"></i>
                                         <?php else: ?>
@@ -128,7 +128,7 @@
                                             <?php }?>
                                         <?php }?>
                                     <?php }?>
-                                    <td>
+                                    <td style="text-align: center">
                                         <?php if(isset($usuario['UsuarioAvaliacao']['id']) and !is_null($usuario['UsuarioAvaliacao']['avaliador_id'])): ?>
                                             <i class="glyphicon glyphicon-ok" style="color: green"></i>
                                         <?php else: ?>
@@ -180,10 +180,3 @@
         </div>
     </div>
 </div>
-<!--
-<script type="text/javascript">
-    document.getElementById('param').focus();
-</script>-->
-
-
-

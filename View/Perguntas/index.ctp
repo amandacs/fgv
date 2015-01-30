@@ -5,9 +5,6 @@
         <div class="btn-group">
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-refresh"></i>', array('action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
             <?php echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Indicador', array('action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?>
-            <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-th-list"></i> Listar Graus', array('controller' => 'graus', 'action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); */?><!--
-            <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Adicionar Grau', array('controller' => 'graus', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); */?>
-            --><?php /*echo $this->Html->link('<i class="glyphicon glyphicon-th-list"></i> Listar Grupos', array('controller' => 'grupos', 'action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false)); */?>
         </div>
     </div>
 

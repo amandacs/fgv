@@ -26,34 +26,31 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/Usuarios/add.ctp">
+        <entry file="file://$PROJECT_DIR$/View/UsuarioAvaliacoes/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1496">
-              <caret line="68" column="132" selection-start-line="68" selection-start-column="132" selection-end-line="68" selection-end-column="132" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1989">
+              <caret line="23" column="49" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/Usuarios/edit.ctp">
+      <file leaf-file-name="ficha.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/Usuarios/ficha.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="761" max-vertical-offset="1462">
-              <caret line="64" column="141" selection-start-line="64" selection-start-column="141" selection-end-line="64" selection-end-column="141" />
+            <state vertical-scroll-proportion="0.62767476" vertical-offset="410" max-vertical-offset="7718">
+              <caret line="50" column="71" selection-start-line="50" selection-start-column="71" selection-end-line="50" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/Usuarios/index.ctp">
+      <file leaf-file-name="default.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/Layouts/default.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="3315">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="9" />
-              <folding>
-                <marker date="1418744765637" expanded="false" signature="389:403" placeholder="..." />
-                <marker date="1418744765637" expanded="false" signature="4027:4041" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1105">
+              <caret line="34" column="0" selection-start-line="30" selection-start-column="2" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,17 +58,67 @@
       <file leaf-file-name="login.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View/Usuarios/login.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="527">
-              <caret line="12" column="103" selection-start-line="12" selection-start-column="103" selection-end-line="12" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
+              <caret line="6" column="60" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="standard.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webroot/css/standard.css">
+      <file leaf-file-name="ficha.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/Layouts/ficha.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13277">
+            <state vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="1020">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsuariosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2720">
+              <caret line="435" column="101" selection-start-line="435" selection-start-column="101" selection-end-line="435" selection-end-column="101" />
+              <folding>
+                <element signature="e#369#427#0#PHP" expanded="false" />
+                <element signature="n#index#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#3663#3778#0#PHP" expanded="false" />
+                <element signature="e#6020#6083#0#PHP" expanded="false" />
+                <element signature="n#add#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#7353#7453#0#PHP" expanded="false" />
+                <element signature="n#listar_classes_json#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="n#listar_funcoes_json#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="n#view_indicadores#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#9138#9253#0#PHP" expanded="false" />
+                <element signature="n#edit#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#10899#11019#0#PHP" expanded="false" />
+                <element signature="n#meusDados#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#12637#12757#0#PHP" expanded="false" />
+                <element signature="n#resetaSenha#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="e#13396#13513#0#PHP" expanded="false" />
+                <element signature="n#delete#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="n#login#0;n#UsuariosController#0;n#!!top" expanded="false" />
+                <element signature="n#logout#0;n#UsuariosController#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrganizacoesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/OrganizacoesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1285" max-vertical-offset="5423">
+              <caret line="277" column="20" selection-start-line="277" selection-start-column="20" selection-end-line="277" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Organizacao.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/Organizacao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1989">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -88,20 +135,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/webroot/js/views/usuarios/listar_classes.js" />
-        <option value="$PROJECT_DIR$/Controller/UsuariosController_mine.php" />
-        <option value="$PROJECT_DIR$/View/Usuarios/view_indicadores.php" />
-        <option value="$PROJECT_DIR$/webroot/js/default.js" />
-        <option value="$PROJECT_DIR$/View/Usuarios/view_indicadores.ctp" />
         <option value="$PROJECT_DIR$/View/Layouts/default.ctp" />
         <option value="$PROJECT_DIR$/View/Usuarios/teste.ctp" />
         <option value="$PROJECT_DIR$/webroot/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/webroot/js/views/usuarioAvaliacoes/mediaAvaliado.js" />
         <option value="$PROJECT_DIR$/webroot/css/standard.css" />
         <option value="$PROJECT_DIR$/webroot/js/views/usuarioAvaliacoes/mediaAvaliador.js" />
-        <option value="$PROJECT_DIR$/View/Usuarios/view.ctp" />
         <option value="$PROJECT_DIR$/Model/Pergunta.php" />
-        <option value="$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php" />
         <option value="$PROJECT_DIR$/Controller/AppController.php" />
         <option value="$PROJECT_DIR$/Controller/AvaliacoesController.php" />
         <option value="$PROJECT_DIR$/Controller/CargosController.php" />
@@ -111,7 +151,6 @@
         <option value="$PROJECT_DIR$/Controller/OrganizacoesController.php" />
         <option value="$PROJECT_DIR$/Controller/PerfisController.php" />
         <option value="$PROJECT_DIR$/Controller/PerguntasController.php" />
-        <option value="$PROJECT_DIR$/Controller/UsuariosController.php" />
         <option value="$PROJECT_DIR$/Model/Perfi.php" />
         <option value="$PROJECT_DIR$/View/Avaliacoes/add.ctp" />
         <option value="$PROJECT_DIR$/View/Avaliacoes/edit.ctp" />
@@ -133,12 +172,20 @@
         <option value="$PROJECT_DIR$/View/Perfis/index.ctp" />
         <option value="$PROJECT_DIR$/View/Perfis/view.ctp" />
         <option value="$PROJECT_DIR$/View/UsuarioAvaliacoes/add.ctp" />
-        <option value="$PROJECT_DIR$/View/UsuarioAvaliacoes/edit.ctp" />
         <option value="$PROJECT_DIR$/View/UsuarioAvaliacoes/view.ctp" />
         <option value="$PROJECT_DIR$/View/Usuarios/add.ctp" />
         <option value="$PROJECT_DIR$/View/Usuarios/edit.ctp" />
         <option value="$PROJECT_DIR$/View/Usuarios/index.ctp" />
         <option value="$PROJECT_DIR$/View/Usuarios/login.ctp" />
+        <option value="$PROJECT_DIR$/View/UsuarioAvaliacoes/edit.ctp" />
+        <option value="$PROJECT_DIR$/Config/bootstrap.php" />
+        <option value="$PROJECT_DIR$/Config/database.php" />
+        <option value="$PROJECT_DIR$/View/Layouts/ficha.ctp" />
+        <option value="$PROJECT_DIR$/Model/UsuarioAvaliacao.php" />
+        <option value="$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php" />
+        <option value="$PROJECT_DIR$/View/Usuarios/view.ctp" />
+        <option value="$PROJECT_DIR$/Controller/UsuariosController.php" />
+        <option value="$PROJECT_DIR$/View/Usuarios/ficha.ctp" />
       </list>
     </option>
   </component>
@@ -178,20 +225,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="fgv">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,7 +271,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,6 +317,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UsuarioAvaliacoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -300,6 +369,34 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fgv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="fgv">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -394,7 +491,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -403,7 +500,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.216875" sideWeight="0.49933067" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13875" sideWeight="0.49933067" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23247497" sideWeight="0.50066936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -459,96 +556,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php</url>
+          <line>105</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Controller/UsuariosController.php</url>
+          <line>188</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/View/Usuarios/ficha.ctp</url>
+          <line>178</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/View/Usuarios/login.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5512" max-vertical-offset="7820">
-          <caret line="351" column="94" selection-start-line="351" selection-start-column="94" selection-end-line="351" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/Perfi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/js/views/usuarioAvaliacoes/mediaAvaliador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7803">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="2992">
-          <caret line="162" column="48" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5253">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="3043">
-          <caret line="165" column="48" selection-start-line="165" selection-start-column="48" selection-end-line="165" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7871">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2992">
-          <caret line="165" column="79" selection-start-line="165" selection-start-column="77" selection-end-line="165" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6666667" vertical-offset="1989" max-vertical-offset="3043">
-          <caret line="145" column="65" selection-start-line="145" selection-start-column="65" selection-end-line="145" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/Pergunta.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47619048" vertical-offset="697" max-vertical-offset="1513">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webroot/js/views/usuarioAvaliacoes/mediaAvaliador.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
@@ -560,13 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.576923" vertical-offset="1411" max-vertical-offset="2125">
           <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/AvaliacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33951497" vertical-offset="1326" max-vertical-offset="2278">
-          <caret line="92" column="126" selection-start-line="92" selection-start-column="126" selection-end-line="92" selection-end-column="126" />
         </state>
       </provider>
     </entry>
@@ -598,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/OrganizacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6666667" vertical-offset="4233" max-vertical-offset="5508">
-          <caret line="277" column="128" selection-start-line="277" selection-start-column="128" selection-end-line="277" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/PerfisController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6305278" vertical-offset="1105" max-vertical-offset="2227">
@@ -623,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95238096" vertical-offset="306" max-vertical-offset="1122">
           <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5520685" vertical-offset="5512" max-vertical-offset="7820">
-          <caret line="351" column="94" selection-start-line="351" selection-start-column="94" selection-end-line="351" selection-end-column="94" />
         </state>
       </provider>
     </entry>
@@ -773,59 +781,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/UsuarioAvaliacoes/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4850214" vertical-offset="408" max-vertical-offset="1768">
-          <caret line="44" column="398" selection-start-line="44" selection-start-column="398" selection-end-line="44" selection-end-column="398" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/UsuarioAvaliacoes/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4122682" vertical-offset="0" max-vertical-offset="1734">
-          <caret line="17" column="0" selection-start-line="16" selection-start-column="10" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/Usuarios/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1496">
-          <caret line="68" column="132" selection-start-line="68" selection-start-column="132" selection-end-line="68" selection-end-column="132" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/Usuarios/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="761" max-vertical-offset="1462">
-          <caret line="64" column="141" selection-start-line="64" selection-start-column="141" selection-end-line="64" selection-end-column="141" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Usuarios/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="3315">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="9" />
-          <folding>
-            <marker date="1418744765637" expanded="false" signature="389:403" placeholder="..." />
-            <marker date="1418744765637" expanded="false" signature="4027:4041" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/Usuarios/login.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="527">
-          <caret line="12" column="103" selection-start-line="12" selection-start-column="103" selection-end-line="12" selection-end-column="103" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webroot/css/standard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13277">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="13719">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Usuarios/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.576923" vertical-offset="251" max-vertical-offset="1292">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615" vertical-offset="510" max-vertical-offset="1615">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="374">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/AvaliacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="612" max-vertical-offset="2074">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2346" max-vertical-offset="3740">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Usuarios/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="821" max-vertical-offset="5083">
+          <caret line="80" column="303" selection-start-line="80" selection-start-column="303" selection-end-line="80" selection-end-column="303" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/UsuarioAvaliacoes/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="1768">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Usuarios/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="1428">
+          <caret line="65" column="132" selection-start-line="65" selection-start-column="132" selection-end-line="65" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/UsuarioAvaliacoes/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1989">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Usuarios/login.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/img/pmbv.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/img/pmbv_menu.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Layouts/default.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1105">
+          <caret line="34" column="0" selection-start-line="30" selection-start-column="2" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Layouts/ficha.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="1020">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/OrganizacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1285" max-vertical-offset="5423">
+          <caret line="277" column="20" selection-start-line="277" selection-start-column="20" selection-end-line="277" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/UsuarioAvaliacao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6388262" vertical-offset="1060" max-vertical-offset="2295">
+          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UsuarioAvaliacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.28216705" vertical-offset="2114" max-vertical-offset="3060">
+          <caret line="117" column="115" selection-start-line="117" selection-start-column="115" selection-end-line="117" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Organizacao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1989">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UsuariosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2720">
+          <caret line="435" column="101" selection-start-line="435" selection-start-column="101" selection-end-line="435" selection-end-column="101" />
+          <folding>
+            <element signature="e#369#427#0#PHP" expanded="false" />
+            <element signature="n#index#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#3663#3778#0#PHP" expanded="false" />
+            <element signature="e#6020#6083#0#PHP" expanded="false" />
+            <element signature="n#add#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#7353#7453#0#PHP" expanded="false" />
+            <element signature="n#listar_classes_json#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="n#listar_funcoes_json#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="n#view_indicadores#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#9138#9253#0#PHP" expanded="false" />
+            <element signature="n#edit#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#10899#11019#0#PHP" expanded="false" />
+            <element signature="n#meusDados#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#12637#12757#0#PHP" expanded="false" />
+            <element signature="n#resetaSenha#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="e#13396#13513#0#PHP" expanded="false" />
+            <element signature="n#delete#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#UsuariosController#0;n#!!top" expanded="false" />
+            <element signature="n#logout#0;n#UsuariosController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Usuarios/ficha.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62767476" vertical-offset="410" max-vertical-offset="7718">
+          <caret line="50" column="71" selection-start-line="50" selection-start-column="71" selection-end-line="50" selection-end-column="71" />
           <folding />
         </state>
       </provider>

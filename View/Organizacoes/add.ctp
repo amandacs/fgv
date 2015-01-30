@@ -18,11 +18,11 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="required">Nome:</label>
-                            <?php echo $this->Form->input('nome', array('class' => 'uppercase form-control uppercase', 'required' => true, 'autofocus')); ?>
+                            <?php echo $this->Form->input('nome', array('class' => 'form-control uppercase', 'required' => true, 'autofocus')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <label class="required">Sigla:</label>
-                            <?php echo $this->Form->input('acronimo', array('class' => 'uppercase form-control', 'required' => 'required')); ?>
+                            <label>Sigla:</label>
+                            <?php echo $this->Form->input('acronimo', array('class' => 'form-control uppercase')); ?>
                         </div>
                         <div class="col-sm-6">
                             <label>Telefone:</label>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Ramal:</label>
-                            <?php echo $this->Form->input('ramal', array('class' => 'uppercase form-control')); ?>
+                            <?php echo $this->Form->input('ramal', array('class' => 'form-control')); ?>
                         </div>
                 </fieldset>
                 <div class="pull-left" style="margin-top: 20px">
@@ -43,7 +43,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 <?php $this->start('script'); ?>
 <?php echo $this->Html->script('default'); ?>

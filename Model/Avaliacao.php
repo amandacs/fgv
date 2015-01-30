@@ -31,26 +31,6 @@ class Avaliacao extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		/*'prazo' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
-				'message' => 'Digite uma data válida!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-        'prazo_avaliador' => array(
-            'datetime' => array(
-                'rule' => array('datetime'),
-                'message' => 'Digite uma data válida!',
-                //'allowEmpty' => false,
-                //'required' => false,
-                //'last' => false, // Stop validation after this rule
-                //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
-        ),*/
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

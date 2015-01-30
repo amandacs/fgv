@@ -26,21 +26,6 @@
             <div class="checkbox">
                 <label><?php echo $this->Form->input('obrigatoria');?> Obrigatório?</label>
             </div>
-<!--            <label style="margin: 20px 0 10px 0">Classes:</label>
-            <div id="perg_box">
-            <?php /*foreach($classes as $id => $classe): */?>
-                <?php /*$checked = '' ;*/?>
-                <?php /*if(in_array($id, $this->App->arrayFromDB($this->request->data['Pergunta']['classe_array']))){
-                    $checked = 'checked';
-                }*/?>
-                <label class="perg_label"><?php /*echo $this->Form->checkbox('classe_array', array('hiddenField' => false,'id'=>'PerguntaClasseArray'.$id, 'name'=>'data[Pergunta][classe_array][]',
-                    'label'=>'PerguntaClasseArray'.$id, 'value'=>$id, $checked));*/?><?php /*echo' '.$classe;*/?></label>
-            <?php /*endforeach; */?>
-            </div>
-            <label style="margin: 20px 0 10px 0">Funções:</label>
-            <div>
-                <?php /*echo $this->Form->input('funcao_id', array('class' => 'form-control', 'empty' => 'Selecione a função relacionanda a este indicador...'));*/?>
-            </div>-->
             <div class="form-group"  style="margin-top: 10px">
                 <label>Observação:</label>
                 <?php echo $this->Form->input('observacao', array('class' => 'form-control', 'rows'=>2));?>

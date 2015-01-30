@@ -42,6 +42,13 @@ class Classe extends AppModel {
             'conditions' => '',
             'fields' => '',
             'order' => ''
+        ),
+        'ClassePai' => array(
+            'className' => 'Classe',
+            'foreignKey' => 'parent_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
         )
     );
 

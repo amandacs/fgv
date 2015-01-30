@@ -21,11 +21,6 @@ class Grupo extends AppModel {
 				'rule' => array('notEmpty'),
 			),
 		),
-        'ordem' => array(
-            'numeric' => array(
-                'rule' => array('numeric'),
-            ),
-        ),
 		'observacao' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

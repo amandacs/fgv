@@ -22,18 +22,9 @@
                 <label class="required">Indicador:</label>
                 <?php echo $this->Form->input('descricao', array('class' => 'form-control', 'required' => true));?>
             </div>
-
             <div class="checkbox">
                 <label><?php echo $this->Form->input('obrigatoria');?> Obrigatório?</label>
             </div>
-            <!--<label style="margin: 20px 0 0 0">Classes:</label>
-            <div id="perg_box">
-                <?php /*echo $this->Form->input('classe_array', array('type'=>'select', 'options'=>$classes, 'multiple'=>'checkbox', 'class'=>'perg_box'));*/?>
-            </div>
-            <label style="margin: 20px 0 0 0">Funções:</label>
-            <div>
-                <?php /*echo $this->Form->input('funcao_id', array('class' => 'form-control', 'required' => true, 'empty' => 'Selecione a função relacionanda a este indicador...'));*/?>
-            </div>-->
         </fieldset>
         <p class="pull-left" style="margin-top: 10px">
             <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>

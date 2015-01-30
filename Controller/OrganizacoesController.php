@@ -8,80 +8,80 @@ App::uses('AppController', 'Controller');
  */
 class OrganizacoesController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator');
+    /**
+     * Components
+     *
+     * @var array
+     */
+    public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index2() {
-		$this->Organizacao->recursive = 0;
-		$this->set('organizacoes', $this->Paginator->paginate());
+    /**
+     * index method
+     *
+     * @return void
+     */
+    public function index2() {
+        $this->Organizacao->recursive = 0;
+        $this->set('organizacoes', $this->Paginator->paginate());
         $this->set('title_for_layout', 'Organizações');
-	}
+    }
 
     public function index() {
 
-            if(!isset($this->request->data['Organizacao']['orgao_id'])){
-                $orgao_id = 1;
-            }else{
-                $orgao_id = $this->request->data['Organizacao']['orgao_id'];
-            }
-            $orgao = $this->Organizacao->find('first',
-                array(
-                    'conditions' => array(
-                        'id' => $orgao_id
-                    ),
-                    'recursive' => -1
-                )
-            );
-            $this->set('parent', $orgao);
-
-            if($orgao_id == 1){
-                $label_root = 'PMBV';
-            }else{
-                $label_root = $orgao['Organizacao']['acronimo'] != null ? $orgao['Organizacao']['acronimo']:$orgao['Organizacao']['nome'];
-            }
-
-            $this->request->data['Organizacao']['orgao_id'] = $orgao['Organizacao']['id'];
-            $orgaos = $this->Organizacao->find('list',
-                array(
-                    'conditions' => array(
-                        'OR' => array(
-                            'id' => 1,
-                            'parent_id' => 1
-                        ),
-                        //'enabled' => true
-                    ),
-                    'order' => array(
-                        'nome'
-                    ),
-                    'recursive' => -1
-                )
-            );
-            $this->set(compact('orgaos'));
-
-            $findLevel1 = $this->Organizacao->find('all', array(
+        if(!isset($this->request->data['Organizacao']['orgao_id'])){
+            $orgao_id = 1;
+        }else{
+            $orgao_id = $this->request->data['Organizacao']['orgao_id'];
+        }
+        $orgao = $this->Organizacao->find('first',
+            array(
                 'conditions' => array(
-                    'Organizacao.parent_id' => $orgao_id
+                    'id' => $orgao_id
+                ),
+                'recursive' => -1
+            )
+        );
+        $this->set('parent', $orgao);
+
+        if($orgao_id == 1){
+            $label_root = 'PMBV';
+        }else{
+            $label_root = $orgao['Organizacao']['acronimo'] != null ? $orgao['Organizacao']['acronimo']:$orgao['Organizacao']['nome'];
+        }
+
+        $this->request->data['Organizacao']['orgao_id'] = $orgao['Organizacao']['id'];
+        $orgaos = $this->Organizacao->find('list',
+            array(
+                'conditions' => array(
+                    'OR' => array(
+                        'id' => 1,
+                        'parent_id' => 1
+                    ),
+                    //'enabled' => true
                 ),
                 'order' => array(
-                    'Organizacao.nome' => 'ASC'
+                    'nome'
                 ),
-                'fields' => array('id', 'nome','acronimo', 'parent_id'),
                 'recursive' => -1
-            ));
-            $this->set('primeiro_documento_do_dia', false);
-            $arrayOrganizacao = $this->hierarquia($findLevel1);
-            $this->set('arrayOrganizacaoDestino', json_encode($arrayOrganizacao));
-            $this->set('label_root', '<i class="fa fa-sitemap"></i> <b>'.$label_root.'</b>');
-            $this->set('id_root', $orgao_id);
+            )
+        );
+        $this->set(compact('orgaos'));
+
+        $findLevel1 = $this->Organizacao->find('all', array(
+            'conditions' => array(
+                'Organizacao.parent_id' => $orgao_id
+            ),
+            'order' => array(
+                'Organizacao.nome' => 'ASC'
+            ),
+            'fields' => array('id', 'nome','acronimo', 'parent_id'),
+            'recursive' => -1
+        ));
+        $this->set('primeiro_documento_do_dia', false);
+        $arrayOrganizacao = $this->hierarquia($findLevel1);
+        $this->set('arrayOrganizacaoDestino', json_encode($arrayOrganizacao));
+        $this->set('label_root', '<i class="fa fa-sitemap"></i> <b>'.$label_root.'</b>');
+        $this->set('id_root', $orgao_id);
 
     }
 
@@ -151,7 +151,7 @@ class OrganizacoesController extends AppController {
                 array(
                     'id' => $organizacaoDestino['Organizacao']['id'],
                     'nome' => $organizacaoDestino['Organizacao']['nome'],
-                    'sigla' => $organizacaoDestino['Organizacao']['acronimo'],
+                    'acronimo' => $organizacaoDestino['Organizacao']['acronimo'],
                     'secretaria_id' => $organizacaoDestino['Organizacao']['secretaria_id'],
                     'usuarios' => $arrayUsuarios,
                     'breadcrumb' => $breadcrumb
@@ -162,7 +162,7 @@ class OrganizacoesController extends AppController {
                 array(
                     'id' => $organizacaoDestino['Organizacao']['id'],
                     'nome' => $organizacaoDestino['Organizacao']['nome'],
-                    'sigla' => $organizacaoDestino['Organizacao']['acronimo'],
+                    'acronimo' => $organizacaoDestino['Organizacao']['acronimo'],
                     'secretaria_id' => null,
                     'usuarios' => array(),
                     'breadcrumb' => $breadcrumb
@@ -193,7 +193,7 @@ class OrganizacoesController extends AppController {
             array_push($arrayL1, array(
                 'id' => $orgao['Organizacao']['id'],
                 'label' => $orgao['Organizacao']['nome'],
-                'sigla' => $orgao['Organizacao']['acronimo']
+                'acronimo' => $orgao['Organizacao']['acronimo']
             ));
         }
         return $arrayL1;
@@ -206,27 +206,27 @@ class OrganizacoesController extends AppController {
     }
 
     /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Organizacao->exists($id)) {
-			throw new NotFoundException(__('Organização inválida.'));
-		}
-		$organização = $this->Organizacao->find ('first', array ('conditions' => array('Organizacao.' . $this->Organizacao->primaryKey => $id)));
-		$this->set('organizacao', $organização);
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view($id = null) {
+        if (!$this->Organizacao->exists($id)) {
+            throw new NotFoundException(__('Organização inválida.'));
+        }
+        $organização = $this->Organizacao->find ('first', array ('conditions' => array('Organizacao.' . $this->Organizacao->primaryKey => $id)));
+        $this->set('organizacao', $organização);
         $this->set('modal_title', __('ORGANIZAÇÃO - ') . ' <b>'.$organização['Organizacao']['nome'].'</b>');
         $this->layout = 'modal';
-	}
+    }
 
-/**
- * add method
- *
- * @return void
- */
+    /**
+     * add method
+     *
+     * @return void
+     */
 
     public function add($parent_id = null, $secretaria_id = null) {
         if (!$this->Organizacao->exists($parent_id)) {
@@ -235,8 +235,6 @@ class OrganizacoesController extends AppController {
 
         if ($this->request->is('post')) {
             $this->Organizacao->create();
-            $this->request->data['Organizacao']['nome'] = $this->convertem($this->request->data['Organizacao']['nome']);
-            $this->request->data['Organizacao']['acronimo'] = $this->convertem($this->request->data['Organizacao']['acronimo']);
             $this->request->data['Organizacao']['parent_id'] = $parent_id;
             $this->request->data['Organizacao']['secretaria_id'] = $secretaria_id;
             if ($this->Organizacao->save($this->request->data)) {
@@ -262,20 +260,18 @@ class OrganizacoesController extends AppController {
         $this->set('parent', $parent);
     }
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+    /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
     public function edit($id = null) {
         if (!$this->Organizacao->exists($id)) {
             throw new NotFoundException(__('Organização inválida.'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['Organizacao']['nome'] = $this->convertem($this->request->data['Organizacao']['nome']);
-            $this->request->data['Organizacao']['acronimo'] = $this->convertem($this->request->data['Organizacao']['acronimo']);
             if ($this->Organizacao->save($this->request->data)) {
                 $this->Session->setFlash(('Organização editada com sucesso!'), $this->ALERT_ELEMENT, array('class'=>'alert-success', 'escape'=>false));
                 return $this->redirect(array('action' => 'index'));
@@ -295,24 +291,24 @@ class OrganizacoesController extends AppController {
         $this->set(compact('parent'));
     }
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Organizacao->id = $id;
-		if (!$this->Organizacao->exists()) {
-			throw new NotFoundException(__('Organização inválida.'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Organizacao->delete()) {
-			$this->Session->setFlash(__('Organização excluída com sucesso!'), $this->ALERT_ELEMENT, array('class'=>'alert-success', 'escape'=>false));
-		} else {
-			$this->Session->setFlash(__('A organização não pôde ser excluída. Por favor, tente novamente.'), 'alert', array('alert-danger', 'escape'=>false));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
+    /**
+     * delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function delete($id = null) {
+        $this->Organizacao->id = $id;
+        if (!$this->Organizacao->exists()) {
+            throw new NotFoundException(__('Organização inválida.'));
+        }
+        $this->request->allowMethod('post', 'delete');
+        if ($this->Organizacao->delete()) {
+            $this->Session->setFlash(__('Organização excluída com sucesso!'), $this->ALERT_ELEMENT, array('class'=>'alert-success', 'escape'=>false));
+        } else {
+            $this->Session->setFlash(__('A organização não pôde ser excluída. Por favor, tente novamente.'), 'alert', array('alert-danger', 'escape'=>false));
+        }
+        return $this->redirect(array('action' => 'index'));
+    }
 }

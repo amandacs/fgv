@@ -63,13 +63,12 @@ class AppController extends Controller {
         if($array == null)
             return null;
 
-            $array = implode(',', $array);
-            $array = '{'.$array.'}';
-            return $array;
+        $array = implode(',', $array);
+        $array = '{'.$array.'}';
+        return $array;
 
     }
 
-    /*Creio que não estou utilizando*/
     public function dataBeforeSave($data){
         if($data == null){
             return null;
@@ -79,17 +78,7 @@ class AppController extends Controller {
         }
     }
 
-    /*public function beforeSave($options = array()) {
-        if(!empty($this->data['Cliente']['aniversario'])){
-            $this->data['Cliente']['aniversario'] = $this->dataBeforeSave($this->data['Cliente']['aniversario']);
-        }
-        return true;
-    }*/
-
     public function beforeRender(){
-        /*if ($this->request->is('ajax')) {
-            $this->layout = 'ajax';
-        }*/
         if ($this->Session->check('Message.flash')) {
             $flash = $this->Session->read('Message.flash');
 

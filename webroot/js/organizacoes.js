@@ -72,9 +72,9 @@ function setOrgaoSelecionado(response){
                 '<i class="fa fa-check text-success"></i>' +
                 '<span class="text-success">Usuário(s):</span> ' + $usuarios +
                 '</p>' +
-                '<a href="/fgv/organizacoes/edit/'+ json[0].id + '" class="btn btn-link">Editar</a>' +
-                '<a href="/fgv/organizacoes/add/' + json[0].id + '/' + json[0].secretaria_id + '" class="btn btn-link">Novo subordinado</a>' +
-                '<a href="/fgv/usuarios/index/'+ json[0].id + '" class="btn btn-link">Usuarios</a>'
+                '<a href="organizacoes/edit/'+ json[0].id + '" class="btn btn-link">Editar</a>' +
+                '<a href="organizacoes/add/' + json[0].id + '/' + json[0].secretaria_id + '" class="btn btn-link">Novo subordinado</a>' +
+                '<a href="usuarios/index/'+ json[0].id + '" class="btn btn-link">Usuarios</a>'
         );
         if(json[0].primeiro_documento_do_dia){
             $("#primeiro_documento_message").html(

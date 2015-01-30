@@ -21,16 +21,6 @@
             <?php echo h($pergunta['Grupo']['nome']); ?>
             &nbsp;
         </dd>
-        <dt><?php echo __('Classes relacionadas'); ?></dt>
-        <dd>
-            <?php echo h($pergunta['Pergunta']['classe_array']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('Funções relacionadas'); ?></dt>
-        <dd>
-            <?php echo h($pergunta['Pergunta']['funcao_array']); ?>
-            &nbsp;
-        </dd>
     </dl>
 </div>
 <div class="actions">

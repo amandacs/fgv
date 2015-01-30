@@ -5,9 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property Grupo $Grupo
  * @property Avaliacao $Avaliacao
- * @property Grau $Grau
- * @property Classe $Classe
- * @property Funcao $Funcao
  */
 class Pergunta extends AppModel {
 
@@ -17,10 +14,6 @@ class Pergunta extends AppModel {
  * @var array
  */
     public $displayField = 'descricao';
-    /*public $displayField = 'pergunta';
-    public $virtualFields = array(
-        'pergunta' => "CONCAT(Pergunta.ordem,'-', Pergunta.descricao)"
-    );*/
     public $validate = array(
         'ordem' => array(
             'notEmpty' => array(
@@ -50,34 +43,5 @@ class Pergunta extends AppModel {
             'fields' => '',
             'order' => ''
         ),
-        /*'Funcao' => array(
-            'className' => 'Funcao',
-            'foreignKey' => 'funcao_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        ),
-        'Classe' => array(
-            'className' => 'Classe',
-            'foreignKey' => 'classe_array',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        ),*/
 	);
-   /* public $hasMany = array(
-        'Grau' => array(
-            'className' => 'Grau',
-            'foreignKey' => 'indicador_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
-        ),
-    );*/
 }

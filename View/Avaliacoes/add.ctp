@@ -25,20 +25,7 @@
                 <label class="required">Prazo Avaliador:</label>
                 <?php echo $this->Form->input('prazo_avaliador', array('type'=>'text', 'class' => 'form-control erro med date', 'required' => true, 'readOnly'=>true)); ?>
             </div>
-            <!--<div class="form-group">
-                <label class="required">Descrição:</label>
-                <?php /*echo $this->Form->input('descricao', array('type' => 'text', 'class' => 'form-control', 'required' => true)); */?>
-            </div>
-            <div class="form-group">
-                <label class="required">Prazo Avaliado:</label>
-                <?php /*echo $this->Form->input('prazo', array('type'=>'text', 'class' => 'form-control erro med date', 'required' => true)); */?>
-            </div>
-            <div class="form-group">
-                <label class="required">Prazo Avaliador:</label>
-                <?php /*echo $this->Form->input('prazo_avaliador', array('type'=>'text', 'class' => 'form-control erro med date', 'required' => true)); */?>
-            </div>   -->
         </fieldset>
-
         <p class="pull-left">
             <?php echo $this->Form->button('Salvar', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
             <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('class' => 'btn btn-danger')); ?>
@@ -46,8 +33,3 @@
         <?php echo $this->Form->end(); ?>
     </div>
 </div>
-<?php $this->start('script');?>
-<?php echo $this->Html->script('jquery-ui.js'); ?>
-<?php echo $this->Html->script('jquery-ui.min.js'); ?>
-<?php echo $this->Html->script('default'); ?>
-<?php $this->end();?>

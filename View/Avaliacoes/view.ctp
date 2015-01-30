@@ -13,12 +13,12 @@
             </dd>
             <dt><?php echo __('Prazo Avaliado'); ?></dt>
             <dd>
-                <?php echo h($avaliacoes['Avaliacao']['prazo']); ?>
+                <?php echo $this->Time->format(h($avaliacoes['Avaliacao']['prazo']), '%d/%m/%Y'); ?>
                 &nbsp;
             </dd>
             <dt><?php echo __('Prazo Avaliador'); ?></dt>
             <dd>
-                <?php echo h($avaliacoes['Avaliacao']['prazo_avaliador']); ?>
+                <?php echo $this->Time->format(h($avaliacoes['Avaliacao']['prazo_avaliador']), '%d/%m/%Y'); ?>
                 &nbsp;
             </dd>
         </dl>
@@ -57,28 +57,4 @@
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
-    <!--<h3><?php /*echo __('Indicadores Relacionados'); */?></h3>
-    <?php /*if (empty($pergunta)): */?>
-        <table cellpadding = "0" cellspacing = "0">
-            <tr>
-                <th><?php /*echo __('Id'); */?></th>
-                <th><?php /*echo __('Descrição'); */?></th>
-                <th><?php /*echo __('Ordem'); */?></th>
-                <th><?php /*echo __('Grupo'); */?></th>
-                <th class="actions"><?php /*echo __('Actions'); */?></th>
-            </tr>
-            <?php /*foreach ($perguntas as $pergunta): */?>
-                <tr>
-                    <td><?php /*echo $pergunta['Pergunta']['id']; */?>&nbsp;</td>
-                    <td><?php /*echo $pergunta['Pergunta']['descricao']; */?>&nbsp;</td>
-                    <td><?php /*echo $pergunta['Pergunta']['ordem']; */?>&nbsp;</td>
-                    <td><?php /*echo $pergunta['Grupo']['nome']; */?>&nbsp;</td>
-                    <td class="actions">
-                        <?php /*echo $this->Html->link('<i class="glyphicon glyphicon-pencil"></i>', array('controller' => 'perguntas', 'action' => 'edit', $pergunta['Pergunta']['id']), array('title'=>'Editar','escape' => false)); */?>
-                        <?php /*echo $this->Form->postLink('<i class="glyphicon glyphicon-trash"></i>', array('controller' => 'perguntas', 'action' => 'delete', $pergunta['Pergunta']['id']), array('title'=>'Excluir','escape'=>false), __('Tem certeza que deseja deletar a perhuinta # %s?', $pergunta['Pergunta']['id'])); */?>
-                    </td>
-                </tr>
-            <?php /*endforeach; */?>
-        </table>
-    --><?php /*endif; */?>
 </div>

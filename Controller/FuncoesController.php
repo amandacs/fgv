@@ -60,7 +60,6 @@ class FuncoesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Funcao->create();
-            $this->request->data['Funcao']['nome'] = $this->convertem($this->request->data['Funcao']['nome']);
 			if ($this->Funcao->save($this->request->data)) {
 				$this->Session->setFlash(__('Função adicionada com sucesso!'), 'alert', array('class'=>'alert-success'));
 				return $this->redirect(array('action' => 'index'));
@@ -84,7 +83,6 @@ class FuncoesController extends AppController {
 			throw new NotFoundException(__('Função inválida.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-            $this->request->data['Funcao']['nome'] = $this->convertem($this->request->data['Funcao']['nome']);
 			if ($this->Funcao->save($this->request->data)) {
 				$this->Session->setFlash(__('Função alterada com sucesso!'), 'alert', array('class'=>'alert-success'));
 				return $this->redirect(array('action' => 'index'));

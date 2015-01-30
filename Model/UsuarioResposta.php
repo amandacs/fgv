@@ -5,8 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property UsuarioAvaliacao $UsuarioAvaliacao
  * @property Pergunta $Pergunta
- * @property RespostaAvaliado $RespostaAvaliado
- * @property RespostaAvaliador $RespostaAvaliador
  */
 class UsuarioResposta extends AppModel {
 
@@ -67,19 +65,5 @@ class UsuarioResposta extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		/*'RespostaAvaliado' => array(
-			'className' => 'Grau',
-			'foreignKey' => 'resposta_avaliado_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'RespostaAvaliador' => array(
-			'className' => 'Grau',
-			'foreignKey' => 'resposta_avaliador_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)*/
 	);
 }

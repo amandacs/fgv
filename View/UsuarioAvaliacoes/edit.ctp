@@ -3,8 +3,8 @@
     <?php array_push($grupos, $perg['Grupo']['id']); ?>
 <?php endforeach; ?>
 <?php $grupos = array_unique($grupos); ?>
-    <div class="respostas view" style="border-left: none; margin-top: 30px; float: left">
-        <div class="navbar col-md-12">
+    <div class="respostas view" style="border-left: none; margin-top: 30px; float: left; width: 102%">
+        <div class="navbar col-md-12" style="width: 100%">
             <?php echo $this->Session->flash(); ?>
             <?php
             echo $this->Form->create('UsuarioAvaliacao', array(
@@ -15,7 +15,7 @@
             ));
             ?>
             <?php echo $this->Form->input('id');?>
-            <legend style="font-weight: bold; font-size: 26px"> <?php echo $perguntas[0]['Avaliacao']['descricao']; ?><br> <span style="color: red; font-size: 17px">*Todas as questões são de preenchimento obrigatório.</span></legend>
+            <legend style="font-weight: bold; font-size: 26px"> <?php echo $perguntas[0]['Avaliacao']['descricao']; ?> <span style="color: red; font-size: 17px; padding-left: 15%">*Todas as questões são de preenchimento obrigatório.</span></legend>
             <?php if($grupos == 0)?>
             <?php foreach ($grupos as $grupo):?>
                 <?php $total = 0; ?><!-- total pra media avaliado-->

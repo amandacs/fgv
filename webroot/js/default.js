@@ -2,6 +2,10 @@ $('.uppercase').on('blur', function(){
     $(this).val($(this).val().toUpperCase());
 });
 
+$('.lowercase').on('blur', function(){
+    $(this).val($(this).val().toLowerCase());
+});
+
 $(document).ready(function($){
     $('.date_time').mask('00/00/0000 23:59:59');
     $('.time').mask(' 23:59:59');
@@ -26,21 +30,12 @@ $(document).ready(function($){
         selectOtherMonths: true
     });
 
-
-
-    $("body").on("show.bs.modal", '.modal', function() {
-        removeContent();
+    $('body').on('hide.bs.modal', '.modal', function(){
+        $('.modal-content').html('');
+        $(this).removeData('bs.modal');
     });
 
-    $("body").on("hide.bs.modal", '.modal', function () {
-        removeContent();
-    });
 });
-
-function removeContent(){
-    $(".modal-content").html('');
-    $(this).removeData('bs.modal');
-}
 
 $(document).ajaxSend(function(event, request, settings) {
     $('#loading-indicator').show();

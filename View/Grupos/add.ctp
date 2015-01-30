@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group"  style="float: left">
                     <label>Nova competencia:</label>
-                    <?php echo $this->Form->input('nova_competencia', array('class' => 'form-control check', 'type' => 'checkbox', 'value' => 0));?>
+                    <?php echo $this->Form->input('nova_competencia', array('class' => 'form-control', 'style'=>'width: 25%', 'type' => 'checkbox', 'value' => 0));?>
                 </div>
                 <div id="grupo_id">
                 <div class="form-group">

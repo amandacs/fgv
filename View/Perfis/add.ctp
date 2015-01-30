@@ -1,7 +1,7 @@
 <div class="col-md-8">
     <div class="perfis form">
         <?php
-        echo $this->Form->create('Perfil', array(
+        echo $this->Form->create('Perfi', array(
             'inputDefaults' => array(
                 'label' => false,
                 'div' => false

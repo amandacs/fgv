@@ -17,6 +17,10 @@ input.uppercase {
     text-transform: uppercase !important;
 }
 
+input.lowercase {
+    text-transform: lowercase !important;
+}
+
 label.required:after {
     content: " (preenchimento obrigatório)";
     color: red;
@@ -223,7 +227,7 @@ th{
 }
 div.view {
     float: right;
-    width: 94%;
+    width: 100%;
     border-left: 1px solid #000;
     padding: 10px 2%;
 }
@@ -294,6 +298,7 @@ dd {
     vertical-align: top;
     color: #000;
     width: 130%;
+    line-height: 2em;
 }
 dt {
     font-weight: bold;
@@ -301,6 +306,7 @@ dt {
     vertical-align: top;
     width: 13em;
     color: #000;
+    line-height: 2em;
 }
 h4{
     margin: 25px 0px 20px 0;
@@ -354,6 +360,7 @@ input[type="submit"], .actions ul li a{
     vertical-align: middle;
     white-space: nowrap;
     font-weight: bold;
+    width: 100%;
 }
 .input{
     float: right;
@@ -367,6 +374,7 @@ input[type="submit"], .actions ul li a{
 #avaliacao{
     background: none repeat scroll 0 0 #f1f1f1;
     margin-bottom: 5px;
+    padding: 3px 2px 2px 10px;
 }
 #avaliacao label{
     font-size: 15px;
@@ -396,6 +404,7 @@ div .error-message{
 div .usuarios_add{
     width: 100%;
 }
+
 /*FORMATANDO CAMPOS DE USUARIOS_ADD*/
 div .max{
     width: 50%;
@@ -406,6 +415,11 @@ div .med{
 div .min{
     width: 15%;
 }
+
+div .test{
+    width: 25%;
+}
+
 div ._view{
     float:right;
     width:65%;
@@ -430,17 +444,29 @@ div.actions {
 }
 
 .perg_box label{
-    margin: 0 0 0 5px
+    margin: 0 0 0 5px;
+    width: 33%;
+    white-space: nowrap;
+}
+
+.panel-body{
+    padding: 0px;
+}
+
+#media{
+
 }
 
 .perg_label{
     width: 33%;
     white-space: nowrap;
+    font-size: 12px;
 }
 
 #perg_box{
-    width: 110%;
+    width: 114%;
 }
+
 .menu a:hover{
     background-color: #0000ff;
     color: #555

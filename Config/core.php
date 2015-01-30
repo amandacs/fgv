@@ -95,7 +95,7 @@
  * /app/webroot/.htaccess
  *
  * And uncomment the App.baseUrl below. But keep in mind
- * that plugin assets such as images, CSS and JavaScript files
+ * that plugin assets such as image, CSS and JavaScript files
  * will not work without URL rewriting!
  * To work around this issue you should either symlink or copy
  * the plugin assets into you app's webroot directory. This is
@@ -116,7 +116,7 @@
 	//Configure::write('App.fullBaseUrl', 'http://example.com');
 
 /**
- * Web path to the public images directory under webroot.
+ * Web path to the public image directory under webroot.
  * If not set defaults to 'img/'
  */
 	//Configure::write('App.imageBaseUrl', 'img/');
@@ -230,7 +230,7 @@
 	Configure::write('Security.cipherSeed', '76059309657453542496749683645');
 
 /**
- * Apply timestamps with the last modified time to static assets (js, css, images).
+ * Apply timestamps with the last modified time to static assets (js, css, image).
  * Will append a query string parameter containing the time the file was modified. This is
  * useful for invalidating browser caches.
  *

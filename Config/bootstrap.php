@@ -75,7 +75,7 @@ CakePlugin::loadAll();
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:
  *
- * - AssetDispatcher filter will serve your asset files (css, images, js, etc) from your themes and plugins
+ * - AssetDispatcher filter will serve your asset files (css, image, js, etc) from your themes and plugins
  * - CacheDispatcher filter will read the Cache.check configure variable and try to serve cached content generated from controllers
  *
  * Feel free to remove or add filters as you see fit for your application. A few examples:
